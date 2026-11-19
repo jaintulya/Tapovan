@@ -8,38 +8,22 @@ import {
   GraduationCap,
   Compass,
   Download,
-  Bus,
-  Microscope,
-  Trees,
-  HeartHandshake,
   ShieldCheck,
-  Award,
   Sparkles,
   Target,
   Lightbulb,
-  Eye,
   CheckCircle,
-  Calendar,
-  BookOpen,
   Send,
   Check,
   Phone,
-  UserCheck,
-  Mail,
   MapPin,
   Clock,
   Loader2,
-  MessageCircle,
-  Laptop,
-  Trophy,
-  Users,
-  FileText,
   Search,
   ChevronDown,
   ChevronUp,
   X,
-  ArrowRight,
-  ExternalLink
+  ArrowRight
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -61,6 +45,14 @@ export default function HomePage() {
     e.preventDefault();
     setLoading(true);
     setFormError(null);
+
+    // Basic phone validation
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      setFormError('Please enter a valid 10-digit mobile number.');
+      setLoading(false);
+      return;
+    }
 
     const sheetWebhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL || 'https://script.google.com/macros/s/AKfycbxDG4fwav-ln39lp6gMZIk4WkEYxr-nGWFFPqqPbojAFUO8SzhwIyAs1JtdsTF8lwoXpw/exec';
 
@@ -214,6 +206,7 @@ export default function HomePage() {
             loop
             muted
             playsInline
+            preload="metadata"
             poster="/assets/images/campus_aerial.jpg"
             className="w-full h-full object-cover opacity-60 filter saturate-125"
           >
@@ -268,6 +261,7 @@ export default function HomePage() {
                 </a>
                 <Link
                   href="/about"
+                  prefetch={true}
                   className="btn-outline-white text-xs sm:text-sm py-3.5 px-5 sm:px-6 whitespace-nowrap inline-flex items-center gap-2"
                 >
                   <Compass className="w-4 h-4 shrink-0" />
@@ -290,6 +284,7 @@ export default function HomePage() {
                 <img
                   src="/assets/images/campus_assembly.jpg"
                   alt="Tapovan Vatsalyadham Students Assembly"
+                  loading="eager"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
 
@@ -371,6 +366,7 @@ export default function HomePage() {
                 <img
                   src="/assets/images/school_activity.jpg"
                   alt="Students engaged in co-curricular learning"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
@@ -418,10 +414,10 @@ export default function HomePage() {
 
               {/* Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link href="/about" className="btn-primary text-xs font-semibold py-3 px-6">
+                <Link href="/about" prefetch={true} className="btn-primary text-xs font-semibold py-3 px-6">
                   Read Complete Institutional Profile &rarr;
                 </Link>
-                <Link href="/contact" className="text-xs font-semibold text-[#0b1d3a] hover:text-[#b8860b] transition-colors py-2 px-3">
+                <Link href="/contact" prefetch={true} className="text-xs font-semibold text-[#0b1d3a] hover:text-[#b8860b] transition-colors py-2 px-3">
                   Schedule A Campus Visit
                 </Link>
               </div>
@@ -534,7 +530,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 text-center">
-            <Link href="/academics" className="btn-outline text-xs font-semibold">
+            <Link href="/academics" prefetch={true} className="btn-outline text-xs font-semibold">
               View Detailed Curriculum &amp; Faculty Details &rarr;
             </Link>
           </div>
@@ -556,7 +552,7 @@ export default function HomePage() {
                 Click on any campus facility to view authentic photographs, equipment specifications, and student capacities.
               </p>
             </div>
-            <Link href="/facilities" className="btn-outline text-xs font-semibold shrink-0">
+            <Link href="/facilities" prefetch={true} className="btn-outline text-xs font-semibold shrink-0">
               Browse All Facilities &rarr;
             </Link>
           </div>
@@ -594,6 +590,7 @@ export default function HomePage() {
                 <img
                   src={activeLocation.image}
                   alt={activeLocation.name}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-opacity duration-300"
                 />
                 <span className="absolute top-4 left-4 bg-[#0b1d3a]/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
@@ -715,7 +712,7 @@ export default function HomePage() {
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] mt-4 flex items-center justify-between text-[11px] text-slate-500">
                 <span>GPS Monitored</span>
-                <Link href="/contact" className="text-[#0b1d3a] font-bold hover:underline">Inquire Routes &rarr;</Link>
+                <Link href="/contact" prefetch={true} className="text-[#0b1d3a] font-bold hover:underline">Inquire Routes &rarr;</Link>
               </div>
             </div>
 
@@ -738,7 +735,7 @@ export default function HomePage() {
                 Authentic visual records of our learning spaces, laboratories, assembly, and sports grounds.
               </p>
             </div>
-            <Link href="/gallery" className="btn-outline text-xs font-semibold shrink-0">
+            <Link href="/gallery" prefetch={true} className="btn-outline text-xs font-semibold shrink-0">
               Open Full Photo Gallery ({galleryPreview.length}+ Photos) &rarr;
             </Link>
           </div>
@@ -754,6 +751,7 @@ export default function HomePage() {
                   <img
                     src={photo.src}
                     alt={photo.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#0b1d3a]/90 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded">
@@ -924,7 +922,7 @@ export default function HomePage() {
       </section>
 
       {/* Online Admission Registration Form */}
-      <section className="py-20 bg-white border-t border-[#e5e1d8]" id="admission-form">
+      <section className="py-20 bg-white border-t border-[#e5e1d8] scroll-mt-20 sm:scroll-mt-24" id="admission-form">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#faf9f5] rounded border border-[#e5e1d8] p-6 sm:p-10 shadow-sm">
 
@@ -947,8 +945,9 @@ export default function HomePage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Student Full Name *</label>
+                  <label htmlFor="hp-studentName" className="block text-xs font-bold text-slate-700 mb-1">Student Full Name *</label>
                   <input
+                    id="hp-studentName"
                     type="text"
                     required
                     value={formData.studentName}
@@ -958,8 +957,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Parent / Guardian Name *</label>
+                  <label htmlFor="hp-parentName" className="block text-xs font-bold text-slate-700 mb-1">Parent / Guardian Name *</label>
                   <input
+                    id="hp-parentName"
                     type="text"
                     required
                     value={formData.parentName}
@@ -972,8 +972,9 @@ export default function HomePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
+                  <label htmlFor="hp-phone" className="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
                   <input
+                    id="hp-phone"
                     type="tel"
                     required
                     value={formData.phone}
@@ -983,8 +984,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Email Address (Optional)</label>
+                  <label htmlFor="hp-email" className="block text-xs font-bold text-slate-700 mb-1">Email Address (Optional)</label>
                   <input
+                    id="hp-email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -996,8 +998,9 @@ export default function HomePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Class Seeking Admission *</label>
+                  <label htmlFor="hp-grade" className="block text-xs font-bold text-slate-700 mb-1">Class Seeking Admission *</label>
                   <select
+                    id="hp-grade"
                     required
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
@@ -1013,8 +1016,9 @@ export default function HomePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Residential Locality / City</label>
+                  <label htmlFor="hp-area" className="block text-xs font-bold text-slate-700 mb-1">Residential Locality / City</label>
                   <input
+                    id="hp-area"
                     type="text"
                     value={formData.area}
                     onChange={(e) => setFormData({ ...formData, area: e.target.value })}
@@ -1025,8 +1029,9 @@ export default function HomePage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Bus Route Requirement</label>
+                <label htmlFor="hp-notes" className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Bus Route Requirement</label>
                 <textarea
+                  id="hp-notes"
                   rows={3}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}

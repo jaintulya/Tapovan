@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { X, ZoomIn, Video, Trees, GraduationCap, Trophy, Sparkles } from 'lucide-react';
+import { X, ZoomIn, Video } from 'lucide-react';
 
 interface PhotoItem {
   id: string;
@@ -357,6 +357,7 @@ export default function GalleryPage() {
                   muted
                   playsInline
                   controls
+                  preload="metadata"
                   poster="/assets/images/campus_aerial.jpg"
                   className="w-full h-full object-cover"
                 >

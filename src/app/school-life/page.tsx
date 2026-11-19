@@ -1,18 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { 
-  Sun, 
-  BookOpen, 
-  HeartPulse, 
   Trophy, 
-  Bus, 
-  ShieldCheck, 
   Clock, 
   Music, 
   GraduationCap, 
-  Users,
-  Compass,
-  CheckCircle2,
   Sparkles
 } from 'lucide-react';
 

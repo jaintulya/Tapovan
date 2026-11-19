@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FileText, Search, Download, Eye, ShieldCheck, ExternalLink } from 'lucide-react';
+import { FileText, Search, Download, Eye } from 'lucide-react';
 
 export default function MandatoryDisclosurePage() {
   const [searchTerm, setSearchTerm] = useState('');

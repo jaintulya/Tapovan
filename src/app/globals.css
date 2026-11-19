@@ -134,6 +134,7 @@ body {
   color: #ffffff !important;
   font-weight: 600;
   border-radius: 6px;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1.4rem;
@@ -277,4 +278,22 @@ body {
     animation: none;
     overflow-x: auto;
   }
+}
+
+/* Focus Visible - Keyboard Navigation Accessibility */
+:focus-visible {
+  outline: 2px solid #b8860b;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Smooth Image Loading */
+img {
+  image-rendering: auto;
+}
+
+/* Selection Color */
+::selection {
+  background-color: #d4af37;
+  color: #071326;
 }

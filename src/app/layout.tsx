@@ -5,6 +5,7 @@ import TopBar from '@/components/TopBar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
+import ScrollProgress from '@/components/ScrollProgress';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${lora.variable} scroll-smooth`}>
       <body className="font-sans antialiased bg-[#fbfbf9] text-slate-800 w-full max-w-full overflow-x-hidden relative">
+        <ScrollProgress />
         <TopBar />
         <Navbar />
         <main className="min-h-screen w-full max-w-full overflow-x-hidden">

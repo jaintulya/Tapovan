@@ -2,37 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Calculator, Download, Send, CheckCircle, GraduationCap, Bus, ShieldCheck, Loader2 } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function AdmissionsPage() {
-  // Fee Estimator State
-  const [calcGrade, setCalcGrade] = useState('primary');
-  const [calcType, setCalcType] = useState('standard');
-
-  const feeData: Record<string, { standard: string; composite: string }> = {
-    primary: {
-      standard: '₹38,000 / annum',
-      composite: '₹46,000 / annum (Tuition + Sports & Computer Lab)',
-    },
-    middle: {
-      standard: '₹44,000 / annum',
-      composite: '₹52,000 / annum (Tuition + Science & IT Labs)',
-    },
-    secondary: {
-      standard: '₹48,000 / annum',
-      composite: '₹58,000 / annum (Tuition + Board Practical Stations)',
-    },
-    sr_science: {
-      standard: '₹56,000 / annum',
-      composite: '₹68,000 / annum (Tuition + Advanced Physics/Chem/Bio/CS Labs)',
-    },
-    sr_commerce: {
-      standard: '₹52,000 / annum',
-      composite: '₹62,000 / annum (Tuition + Computer & Applied Labs)',
-    },
-  };
-
   // Form State
   const [form, setForm] = useState({
     studentName: '',
@@ -51,6 +24,13 @@ export default function AdmissionsPage() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
+
+    const phoneDigits = form.phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      setSubmitError('Please enter a valid 10-digit mobile number.');
+      setIsSubmitting(false);
+      return;
+    }
 
     const sheetWebhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL || 'https://script.google.com/macros/s/AKfycbxDG4fwav-ln39lp6gMZIk4WkEYxr-nGWFFPqqPbojAFUO8SzhwIyAs1JtdsTF8lwoXpw/exec';
 
@@ -83,8 +63,6 @@ export default function AdmissionsPage() {
       setIsSubmitting(false);
     }
   };
-
-  const selectedFee = feeData[calcGrade]?.[calcType as 'standard' | 'composite'] || 'Contact Office';
 
   return (
     <>
@@ -156,73 +134,6 @@ export default function AdmissionsPage() {
         </div>
       </section>
 
-      {/* Interactive Fee Estimator Tool */}
-      <section id="fee-structure" className="py-20 bg-[#fbfbf9] border-b border-[#e5e1d8] scroll-mt-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="bg-white rounded p-8 sm:p-12 border border-[#e5e1d8] shadow-sm">
-            <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-              <span className="badge-editorial">
-                <Calculator className="w-3.5 h-3.5 mr-1" /> Transparent Calculator
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">
-                Day School Fee Estimator (<span className="whitespace-nowrap">2027-28</span>)
-              </h2>
-              <p className="text-xs text-slate-500">
-                Transparent fee structure approved by the School Management Committee.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-[#fbfbf9] p-6 rounded border border-[#e5e1d8]">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-2">Select Student Grade:</label>
-                <select 
-                  value={calcGrade}
-                  onChange={(e) => setCalcGrade(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded border border-[#d6d0c2] text-xs sm:text-sm bg-white focus:outline-none focus:ring-1 focus:ring-[#071326] focus:border-[#071326]"
-                >
-                  <option value="primary">Primary School (Grades 1 to 5)</option>
-                  <option value="middle">Middle School (Grades 6 to 8)</option>
-                  <option value="secondary">Secondary School (Grades 9 &amp; 10)</option>
-                  <option value="sr_science">Senior Secondary - Science (XI &amp; XII)</option>
-                  <option value="sr_commerce">Senior Secondary - Commerce (XI &amp; XII)</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 mb-2">Fee Component:</label>
-                <select 
-                  value={calcType}
-                  onChange={(e) => setCalcType(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded border border-[#d6d0c2] text-xs sm:text-sm bg-white focus:outline-none focus:ring-1 focus:ring-[#071326] focus:border-[#071326]"
-                >
-                  <option value="standard">Standard Tuition &amp; Academic Fee</option>
-                  <option value="composite">Composite Fee (Tuition + Science &amp; IT Labs + Sports)</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Output Card */}
-            <div className="mt-6 p-6 rounded bg-[#fcf8ee] border border-[#ebdcb8] text-center space-y-2">
-              <div className="text-xs font-bold text-[#7a5907] uppercase tracking-wider">Estimated Annual Fee</div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif">
-                {selectedFee}
-              </div>
-              <p className="text-xs text-slate-600 max-w-xl mx-auto pt-1 leading-relaxed">
-                Includes CBSE curriculum instruction, smart classroom sessions, library, physical education periods, and examinations.
-              </p>
-              <div className="pt-4">
-                <a href="/assets/docs/fee-structure-2025-26.pdf" target="_blank" className="btn-accent text-xs py-2 px-5 font-bold inline-flex items-center gap-1.5 whitespace-nowrap">
-                  <Download className="w-3.5 h-3.5" /> Download Official Fee Structure PDF
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
       {/* Online Enquiry Form */}
       <section id="form-section" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -246,8 +157,9 @@ export default function AdmissionsPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Student Full Name *</label>
+                  <label htmlFor="adm-studentName" className="block text-xs font-bold text-slate-700 mb-1">Student Full Name *</label>
                   <input 
+                    id="adm-studentName"
                     type="text" 
                     required 
                     value={form.studentName}
@@ -257,8 +169,9 @@ export default function AdmissionsPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Parent / Guardian Name *</label>
+                  <label htmlFor="adm-parentName" className="block text-xs font-bold text-slate-700 mb-1">Parent / Guardian Name *</label>
                   <input 
+                    id="adm-parentName"
                     type="text" 
                     required 
                     value={form.parentName}
@@ -271,8 +184,9 @@ export default function AdmissionsPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
+                  <label htmlFor="adm-phone" className="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
                   <input 
+                    id="adm-phone"
                     type="tel" 
                     required 
                     value={form.phone}
@@ -282,8 +196,9 @@ export default function AdmissionsPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Email Address (Optional)</label>
+                  <label htmlFor="adm-email" className="block text-xs font-bold text-slate-700 mb-1">Email Address (Optional)</label>
                   <input 
+                    id="adm-email"
                     type="email" 
                     value={form.email}
                     onChange={(e) => setForm({...form, email: e.target.value})}
@@ -295,8 +210,9 @@ export default function AdmissionsPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Grade Seeking Admission *</label>
+                  <label htmlFor="adm-grade" className="block text-xs font-bold text-slate-700 mb-1">Grade Seeking Admission *</label>
                   <select 
+                    id="adm-grade"
                     required
                     value={form.grade}
                     onChange={(e) => setForm({...form, grade: e.target.value})}
@@ -312,8 +228,9 @@ export default function AdmissionsPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Residential Locality / Area</label>
+                  <label htmlFor="adm-area" className="block text-xs font-bold text-slate-700 mb-1">Residential Locality / Area</label>
                   <input 
+                    id="adm-area"
                     type="text" 
                     value={form.area}
                     onChange={(e) => setForm({...form, area: e.target.value})}
@@ -324,8 +241,9 @@ export default function AdmissionsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Transportation Needs</label>
+                <label htmlFor="adm-notes" className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Transportation Needs</label>
                 <textarea 
+                  id="adm-notes"
                   rows={3}
                   value={form.notes}
                   onChange={(e) => setForm({...form, notes: e.target.value})}

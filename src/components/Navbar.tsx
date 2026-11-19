@@ -106,6 +106,7 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     href={item.href}
+                    prefetch={true}
                     className={`relative text-xs xl:text-[13px] font-semibold px-2.5 xl:px-3 py-2 transition-colors duration-150 whitespace-nowrap ${
                       active
                         ? 'text-[#0b1d3a] font-bold'
@@ -126,6 +127,7 @@ export default function Navbar() {
               <div className="hidden lg:block shrink-0">
                 <Link
                   href="/admissions"
+                  prefetch={true}
                   className="btn-accent text-xs font-semibold uppercase tracking-wider whitespace-nowrap inline-flex items-center gap-2"
                 >
                   <GraduationCap className="w-4 h-4 shrink-0" />
@@ -206,6 +208,7 @@ export default function Navbar() {
                     <Link
                       key={item.label}
                       href={item.href}
+                      prefetch={true}
                       onClick={() => setMobileMenuOpen(false)}
                       className={`px-3 py-2.5 text-xs sm:text-sm font-semibold rounded-lg flex items-center justify-between transition-colors ${
                         active
@@ -228,6 +231,7 @@ export default function Navbar() {
               <div className="mt-4 pt-3.5 border-t border-[#e5e1d8]">
                 <Link
                   href="/admissions"
+                  prefetch={true}
                   onClick={() => setMobileMenuOpen(false)}
                   className="btn-accent w-full justify-center text-xs uppercase tracking-wider font-bold py-2.5 text-center whitespace-nowrap"
                 >

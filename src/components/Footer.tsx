@@ -43,14 +43,14 @@ export default function Footer() {
               Explore
             </h4>
             <ul className="space-y-2 text-xs">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/about#vision" className="hover:text-white transition-colors">Our Vision &amp; Mission</Link></li>
-              <li><Link href="/facilities" className="hover:text-white transition-colors">Infrastructure &amp; Facilities</Link></li>
-              <li><Link href="/academics" className="hover:text-white transition-colors">Academics &amp; Curriculum</Link></li>
-              <li><Link href="/school-life" className="hover:text-white transition-colors">Campus Life &amp; Routine</Link></li>
-              <li><Link href="/gallery" className="hover:text-white transition-colors">Photo Gallery</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link href="/" prefetch={true} className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link href="/about" prefetch={true} className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/about#vision" prefetch={true} className="hover:text-white transition-colors">Our Vision &amp; Mission</Link></li>
+              <li><Link href="/facilities" prefetch={true} className="hover:text-white transition-colors">Infrastructure &amp; Facilities</Link></li>
+              <li><Link href="/academics" prefetch={true} className="hover:text-white transition-colors">Academics &amp; Curriculum</Link></li>
+              <li><Link href="/school-life" prefetch={true} className="hover:text-white transition-colors">Campus Life &amp; Routine</Link></li>
+              <li><Link href="/gallery" prefetch={true} className="hover:text-white transition-colors">Photo Gallery</Link></li>
+              <li><Link href="/contact" prefetch={true} className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 

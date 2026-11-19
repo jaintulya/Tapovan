@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { BookOpen, Calendar, BookMarked, Users, Award, Download, CheckCircle, GraduationCap } from 'lucide-react';
+import { Calendar, BookMarked, Users, CheckCircle } from 'lucide-react';
 
 export const metadata = {
   title: 'Academics & CBSE Curriculum | Tapovan Vatsalyadham School',
@@ -57,6 +57,7 @@ export default function AcademicsPage() {
                 <img 
                   src="/assets/images/classroom_learning.jpg" 
                   alt="Classroom Discussions" 
+                  loading="lazy"
                   className="w-full h-auto object-cover" 
                 />
               </div>

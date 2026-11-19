@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { Microscope, Laptop, BookOpen, Trophy, Trees, Music, Sparkles, Award } from 'lucide-react';
 
 export const metadata = {
   title: 'Campus Infrastructure & Facilities | Tapovan Vatsalyadham School',
@@ -143,6 +142,7 @@ export default function FacilitiesPage() {
                   <img
                     src={fac.image}
                     alt={fac.title}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-3 left-3 bg-[#071326]/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">

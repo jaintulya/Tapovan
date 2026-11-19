@@ -15,10 +15,20 @@ export default function ContactPage() {
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
+
+    const phoneDigits = form.phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      setError('Please enter a valid 10-digit mobile number.');
+      setLoading(false);
+      return;
+    }
+
     const sheetWebhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL || 'https://script.google.com/macros/s/AKfycbxDG4fwav-ln39lp6gMZIk4WkEYxr-nGWFFPqqPbojAFUO8SzhwIyAs1JtdsTF8lwoXpw/exec';
 
     try {
@@ -167,11 +177,18 @@ export default function ContactPage() {
                   </div>
                 )}
 
+                {error && (
+                  <div className="p-3 bg-red-50 text-red-700 rounded border border-red-200 text-xs font-semibold mb-4 text-center">
+                    {error}
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Your Full Name *</label>
+                      <label htmlFor="ct-name" className="block text-xs font-bold text-slate-700 mb-1">Your Full Name *</label>
                       <input 
+                        id="ct-name"
                         type="text" 
                         required 
                         value={form.name}
@@ -181,8 +198,9 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+                      <label htmlFor="ct-email" className="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
                       <input 
+                        id="ct-email"
                         type="email" 
                         required 
                         value={form.email}
@@ -195,8 +213,9 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                      <label htmlFor="ct-phone" className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
                       <input 
+                        id="ct-phone"
                         type="tel" 
                         required 
                         value={form.phone}
@@ -206,8 +225,9 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Subject Department</label>
+                      <label htmlFor="ct-dept" className="block text-xs font-bold text-slate-700 mb-1">Subject Department</label>
                       <select 
+                        id="ct-dept"
                         value={form.department}
                         onChange={(e) => setForm({...form, department: e.target.value})}
                         className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-xs sm:text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a]"
@@ -221,8 +241,9 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Your Message or Inquiry *</label>
+                    <label htmlFor="ct-message" className="block text-xs font-bold text-slate-700 mb-1">Your Message or Inquiry *</label>
                     <textarea 
+                      id="ct-message"
                       required
                       rows={4}
                       value={form.message}

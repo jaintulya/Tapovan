@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Target, Lightbulb, HeartHandshake, Eye, Award, FileText, Users, Building2, Check } from 'lucide-react';
+import { Target, Lightbulb, HeartHandshake, Eye, FileText, Users } from 'lucide-react';
 
 export const metadata = {
   title: 'About Us | Tapovan Vatsalyadham School (English Medium)',
@@ -49,6 +49,7 @@ export default function AboutPage() {
                 <img 
                   src="/assets/images/campus_assembly.jpg" 
                   alt="Students in Morning Prayer Assembly" 
+                  loading="lazy"
                   className="w-full h-auto object-cover" 
                 />
               </div>
