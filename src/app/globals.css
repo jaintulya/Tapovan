@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-navy: #0b1d3a;
+  --primary-navy-dark: #071326;
+  --primary-navy-light: #153262;
+  --accent-gold: #c59b27;
+  --accent-gold-dark: #9e7916;
+  --accent-gold-soft: #fcf8ee;
+  --bg-ivory: #faf9f5;
+  --bg-warm-stone: #f2efe9;
+  --border-subtle: #e5e1d8;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+}
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--text-main);
+  background-color: var(--bg-ivory);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Viewfinder Framing (Awwwards Reference) */
+.viewfinder-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.viewfinder-frame::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid rgba(255, 255, 255, 0.85);
+  border-left: 2px solid rgba(255, 255, 255, 0.85);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.viewfinder-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+  border-right: 2px solid rgba(255, 255, 255, 0.85);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.viewfinder-tr {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid rgba(255, 255, 255, 0.85);
+  border-right: 2px solid rgba(255, 255, 255, 0.85);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.viewfinder-bl {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+  border-left: 2px solid rgba(255, 255, 255, 0.85);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Docked Strip Anchor (Aurevia Reference) */
+.docked-strip-container {
+  background: #ffffff;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 20px -2px rgba(7, 19, 38, 0.04);
+}
+
+/* Header & Sticky Navigation */
+.nav-institutional {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+}
+
+/* Buttons - Architectural & Sophisticated */
+.btn-primary {
+  background-color: var(--primary-navy);
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.025em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 2px rgba(11, 29, 58, 0.12);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-navy-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(11, 29, 58, 0.2);
+}
+
+.btn-accent {
+  background-color: #b8860b;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 6px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.025em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(184, 134, 11, 0.25);
+}
+
+.btn-accent:hover {
+  background-color: #9e7309;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.35);
+}
+
+.btn-outline {
+  border: 1px solid var(--primary-navy);
+  color: var(--primary-navy) !important;
+  background-color: transparent;
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.8125rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-navy);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.btn-outline-white {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.8125rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-outline-white:hover {
+  background-color: #ffffff;
+  color: var(--primary-navy) !important;
+  transform: translateY(-1px);
+}
+
+/* Institutional Badges */
+.badge-editorial {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #fdfaf2;
+  color: #8b6508;
+  border: 1px solid #ebdcb8;
+}
+
+.badge-navy {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #edf2f9;
+  color: #0b1d3a;
+  border: 1px solid #d0dceb;
+}
+
+/* Architectural Card */
+.editorial-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.editorial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(11, 29, 58, 0.08);
+  border-color: #cfc8ba;
+}
+
+/* Announcement Ticker - Continuous Seamless Infinite Loop */
+.ticker-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden !important;
+  background-color: #f7f4eb;
+  border-bottom: 1px solid #e7e2d5;
+  position: relative;
+  contain: paint;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: tickerSlideInfinite 28s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerSlideInfinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ticker-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "refCode": "TVS-2026-2160",
+    "studentName": "Tulya jain",
+    "parentName": "ejinc r",
+    "phone": "7016747635",
+    "email": "jaintulya@gmail.com",
+    "grade": "Primary (Class 1 to 5)",
+    "type": "Day Scholar",
+    "notes": "rfvvgr v",
+    "submittedAt": "2026-11-16T19:57:31.766Z",
+    "status": "New"
+  },
+  {
+    "refCode": "TVS-2026-7382",
+    "studentName": "Aryan Patel",
+    "parentName": "Ramesh Patel",
+    "phone": "9876543210",
+    "email": "aryan.parent@example.com",
+    "grade": "Primary (Class 1 to 5)",
+    "type": "Day Scholar (Regular)",
+    "notes": "Looking for bus route from Chandkheda",
+    "submittedAt": "2026-11-16T18:58:07.616Z",
+    "status": "New"
+  }
+]
