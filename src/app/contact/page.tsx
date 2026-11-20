@@ -99,10 +99,17 @@ export default function ContactPage() {
                   <div className="text-xs">
                     <h4 className="font-bold text-[#0b1d3a] text-sm mb-1">Campus Address</h4>
                     <p className="text-slate-600 leading-relaxed">
-                      Tapovan Sanskar Pith, Amiyapur, Post - Sughad,<br />
-                      Sabarmati-Gandhinagar Highway, Taluka Chandkheda,<br />
-                      District Gandhinagar, Gujarat - 382424, India
+                      Tapovan sanskar pith, near Tapovan Circle,<br />
+                      Gandhinagar, Amiyapur, Gujarat 382424
                     </p>
+                    <a 
+                      href="https://maps.app.goo.gl/rvkxjZTvtcjEL9YS8" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[#8b6508] font-bold hover:underline inline-flex items-center gap-1 mt-1.5"
+                    >
+                      Open in Google Maps &rarr;
+                    </a>
                   </div>
                 </div>
 
@@ -135,7 +142,8 @@ export default function ContactPage() {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="text-xs">
-                    <h4 className="font-bold text-[#0b1d3a] text-sm mb-0.5">Principal Office</h4>
+                    <h4 className="font-bold text-[#0b1d3a] text-sm mb-0.5">Principal&apos;s Desk</h4>
+                    <p className="text-slate-500 text-[11px] mb-0.5">Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</p>
                     <p className="text-slate-600">
                       Direct: <a href="tel:+919574523601" className="text-[#0b1d3a] font-bold hover:underline">+91 9574523601</a>
                     </p>

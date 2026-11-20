@@ -38,7 +38,7 @@ export default function FacilitiesPage() {
       title: 'Central Knowledge Library & Reading Sanctum',
       category: 'Knowledge Hub',
       image: '/assets/images/library.jpg',
-      desc: 'A quiet reading haven home to thousands of books, reference encyclopedias, NCERT resources, competitive exam guides (JEE, NEET, CUET), periodicals, and educational magazines.',
+      desc: 'A quiet reading haven home to thousands of books, reference encyclopedias, NCERT resources, competitive exam guides (CUET, CA Foundation, Olympiads), periodicals, and educational magazines.',
       tag: '5,000+ Printed Volumes & Journals',
     },
     {

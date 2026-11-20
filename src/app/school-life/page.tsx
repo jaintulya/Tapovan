@@ -15,14 +15,14 @@ export const metadata = {
 
 export default function SchoolLifePage() {
   const dailySchedule = [
-    { time: '07:30 AM', title: 'Campus Arrival', desc: 'Students arrive via school bus fleet and are welcomed at the main gate.' },
-    { time: '07:45 AM', title: 'Morning Assembly & Prayer', desc: 'Prayer shlokas, national anthem, news headlines, and student motivational talk.' },
-    { time: '08:15 AM - 10:15 AM', title: 'Core Academic Sessions (Block 1)', desc: 'Interactive lessons in smart classrooms covering Languages, Mathematics, and Sciences.' },
-    { time: '10:15 AM - 10:35 AM', title: 'Morning Break', desc: 'Students relax, enjoy their snacks, and interact with peers.' },
-    { time: '10:35 AM - 12:35 PM', title: 'Practical Labs & Core Sessions (Block 2)', desc: 'Hands-on experiments in Physics, Chemistry, Biology, and Computer programming.' },
-    { time: '12:35 PM - 01:15 PM', title: 'Lunch Break & Relaxation', desc: 'Wholesome lunch recess and peaceful courtyard walks.' },
-    { time: '01:15 PM - 02:30 PM', title: 'Co-Curricular, Arts & Library', desc: 'Music, visual arts, library reading, public speaking, and project collaboration.' },
-    { time: '02:30 PM', title: 'Dispersal & Bus Departure', desc: 'Organized dismissal under teacher supervision to designated bus routes.' },
+    { time: '07:30 AM', title: 'Campus Arrival & Reporting', desc: 'Students report to campus with organized arrival and faculty gate supervision.' },
+    { time: '07:40 AM', title: 'Morning Assembly & Vedic Chanting', desc: 'Morning assembly starts promptly at 7:40 AM with prayer, Vedic shlokas, news briefing, and national anthem.' },
+    { time: '07:55 AM – 08:20 AM', title: 'Period 1 (Opening Academic Session)', desc: 'Focused morning instruction establishing core concepts in interactive smart classrooms.' },
+    { time: '08:20 AM – 08:35 AM', title: 'Short Recess (Morning Refreshment)', desc: 'A healthy 15-minute recess to energize students for active academic immersion.' },
+    { time: '08:35 AM – 11:15 AM', title: 'Intensive Academic & Practical Blocks', desc: 'Core subject modules across Mathematics, Languages, Sciences, Social Studies, and Commerce specialization.' },
+    { time: '11:15 AM – 11:45 AM', title: 'Lunch Break & Peer Camaraderie', desc: 'Wholesome dining break fostering friendship, healthy eating habits, and mindful relaxation.' },
+    { time: '11:45 AM – 01:00 PM', title: 'Applied Learning, Labs & Commerce Periods', desc: 'Advanced problem solving, computer labs, library research, and sports. Std 12 disperses at 1:00 PM.' },
+    { time: '01:00 PM – 01:40 PM', title: 'Co-Curriculars & Dispersal (Std 1 to 11)', desc: 'Character-building clubs, student enrichment, and organized departure at 1:40 PM.' },
   ];
 
   return (
@@ -56,19 +56,27 @@ export default function SchoolLifePage() {
               
               <div className="p-5 bg-[#fbfbf9] rounded-xl border border-[#e5e1d8] space-y-3">
                 <h4 className="font-bold text-[#071326] text-sm flex items-center gap-2 font-serif">
-                  <Clock className="w-4 h-4 text-[#b8860b]" /> School Working Hours
+                  <Clock className="w-4 h-4 text-[#b8860b]" /> School Timings &amp; Routine
                 </h4>
                 <div className="text-xs text-slate-600 space-y-1.5">
                   <div className="flex justify-between border-b border-[#e5e1d8] pb-1.5">
-                    <span>Monday to Friday:</span>
-                    <strong className="text-[#071326]">7:30 AM – 2:30 PM</strong>
+                    <span>Morning Reporting:</span>
+                    <strong className="text-[#071326]">7:30 AM (Assembly at 7:40 AM)</strong>
                   </div>
                   <div className="flex justify-between border-b border-[#e5e1d8] pb-1.5">
-                    <span>Saturday:</span>
-                    <strong className="text-[#071326]">7:30 AM – 12:30 PM</strong>
+                    <span>Std 1 to 11:</span>
+                    <strong className="text-[#071326]">7:40 AM – 1:40 PM</strong>
+                  </div>
+                  <div className="flex justify-between border-b border-[#e5e1d8] pb-1.5">
+                    <span>Std 12:</span>
+                    <strong className="text-[#071326]">7:40 AM – 1:00 PM</strong>
+                  </div>
+                  <div className="flex justify-between border-b border-[#e5e1d8] pb-1.5">
+                    <span>Working Days:</span>
+                    <strong className="text-[#071326]">Monday – Saturday</strong>
                   </div>
                   <div className="flex justify-between pt-0.5">
-                    <span>Visiting / Office Hours:</span>
+                    <span>Administrative Office:</span>
                     <strong className="text-[#071326]">9:00 AM – 4:00 PM</strong>
                   </div>
                 </div>

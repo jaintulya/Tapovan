@@ -33,14 +33,17 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif leading-tight">
                 Where Character Precedes Career: Education as a Sacred Trust
               </h2>
+              <div className="inline-block bg-[#fdfaf2] text-[#8b6508] border border-[#ebdcb8] text-xs font-serif font-bold px-3 py-1 rounded">
+                Motto: धर्मो रक्षति रक्षितः
+              </div>
               <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                <strong>Tapovan Vatsalyadham School (English Medium)</strong> is an English medium day school dedicated to holistic student development. Inspired by ancient wisdom and operating under the philanthropic guidance of the <strong>Jivan Jagruti Trust</strong>, we present a balanced synthesis of academic excellence, athletic vitality, and ethical character formation.
+                <strong>Tapovan Vatsalyadham School (English Medium)</strong> is a premier CBSE affiliated English medium Boys Day School (Affiliation No. 430592 • School Code 11722) located near Tapovan Circle in Amiyapur, Gandhinagar. Inspired by timeless Indian values and operating under the philanthropic stewardship of the <strong>Jivan Jagruti Trust</strong>, we present a balanced synthesis of academic excellence, athletic vitality, and ethical character formation for Std 1 to 12 (Commerce Stream).
               </p>
               <p className="text-slate-600 text-sm leading-relaxed">
-                The school provides a conducive environment for students to explore their talents and passions. With modern smart classrooms, verified science and IT laboratories, and experienced faculty, Tapovan Vatsalyadham ensures a well-rounded educational journey that prepares students for board success and lifelong leadership.
+                Under the academic leadership of Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong>, our educational approach is designed to cultivate independent inquiry, mental resilience, and global competence in young men without losing connection with their cultural roots.
               </p>
               <div className="p-4 bg-[#fcf8ee] rounded border border-[#ebdcb8] text-xs sm:text-sm text-[#7a5907] font-serif italic">
-                &quot;Children are just like seeds in which a small sapling is hidden and that turns into a gigantic tree when properly nourished. We strive sincerely to kindle in them the flame of knowledge and wisdom.&quot;
+                &quot;To shape academically accomplished young men who think with clarity, are future fluent, stand strong and resilient and lead beyond self — living Bhakti, Maitri, Shuddhi and Shaurya through their choices and actions.&quot;
               </div>
             </div>
 

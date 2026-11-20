@@ -6,22 +6,22 @@ export default function Ticker() {
     {
       icon: Megaphone,
       title: 'Admissions Open 2027-28:',
-      text: 'Registrations invited for Nursery to Class 12 (Science & Commerce streams).',
-    },
-    {
-      icon: CalendarCheck,
-      title: 'Academic Calendar:',
-      text: 'Annual Session 2027-28 & Holiday Schedule available online.',
+      text: 'Registrations invited for Std 1 to 12 (Commerce Stream) — Boys Day School.',
     },
     {
       icon: Award,
-      title: 'Academic Excellence:',
-      text: '100% CBSE Board Pass Rate with disciplined STEM & Physical Education.',
+      title: 'School Motto:',
+      text: 'धर्मो रक्षति रक्षितः (Dharmo Rakshati Rakshitah)',
+    },
+    {
+      icon: CalendarCheck,
+      title: 'Timings (Std 1–11):',
+      text: '7:40 AM to 1:40 PM | Std 12: 7:40 AM to 1:00 PM',
     },
     {
       icon: FileText,
-      title: 'CBSE Disclosures:',
-      text: 'Updated Mandatory Public Disclosures available in the official portal.',
+      title: 'CBSE Affiliation #430592:',
+      text: 'CBSE School Code 11722 | Public Disclosures available online.',
     },
   ];
 

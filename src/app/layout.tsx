@@ -22,8 +22,8 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: 'Tapovan Vatsalyadham School (English Medium) | Premier CBSE Day School, Gandhinagar',
-  description: 'Tapovan Vatsalyadham School (English Medium) - Premier CBSE affiliated English medium Day School in Amiyapur, Gandhinagar, Gujarat. Values-based education, modern STEM labs, smart classrooms, and sports excellence. Managed by Jivan Jagruti Trust.',
+  title: 'Tapovan Vatsalyadham School (English Medium) | Premier CBSE Boys Day School, Gandhinagar',
+  description: 'Tapovan Vatsalyadham School (English Medium) - Premier CBSE affiliated English medium Boys Day School (Affiliation #430592 • School Code: 11722) in Amiyapur, Gandhinagar, Gujarat. Fostering Bhakti, Maitri, Shuddhi & Shaurya. Managed by Jivan Jagruti Trust.',
   icons: {
     icon: '/assets/images/logo.png',
   },

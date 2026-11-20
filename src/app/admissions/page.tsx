@@ -76,59 +76,79 @@ export default function AdmissionsPage() {
             Admissions &amp; Fee Guidelines (<span className="whitespace-nowrap">2027-28</span>)
           </h1>
           <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
-            Welcome to Tapovan Vatsalyadham School (English Medium). We are accepting applications for Nursery up to Class 12 (Science &amp; Commerce) for the upcoming academic session.
+            Welcome to Tapovan Vatsalyadham School (English Medium). We are accepting admission applications for Class 1 up to Class 12 (Commerce Stream) — CBSE Boys Day School — for Academic Session 2027–28.
           </p>
         </div>
       </section>
 
-      {/* 3 Step Process */}
+      {/* 4 Step Process */}
       <section className="py-20 bg-white border-b border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="badge-editorial mb-3">Admission Process</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">
-              Simple 3-Step Enrollment Procedure
+              Simple 4-Step Enrollment Procedure
             </h2>
+            <p className="text-slate-600 text-xs sm:text-sm mt-2">
+              Class 1 Age Eligibility: Minimum 6+ years on or before 31st March of the admission year.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#fbfbf9] rounded p-6 border border-[#e5e1d8]">
-              <div className="w-10 h-10 rounded bg-[#d4af37] text-[#071326] font-bold flex items-center justify-center text-base mb-4">
-                1
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-[#fbfbf9] rounded p-6 border border-[#e5e1d8] flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded bg-[#d4af37] text-[#071326] font-bold flex items-center justify-center text-base mb-4">
+                  1
+                </div>
+                <h3 className="text-base font-bold text-[#0b1d3a] mb-2 font-serif">Online Enquiry</h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  Fill out the quick online enquiry form below with student and parent details.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-[#0b1d3a] mb-2 font-serif">Submit Online Enquiry</h3>
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                Fill out the quick online admission form below with basic student and contact details.
-              </p>
               <a href="#form-section" className="text-xs font-bold text-[#966b0a] hover:underline">
                 Go to Form &darr;
               </a>
             </div>
 
-            <div className="bg-[#fbfbf9] rounded p-6 border border-[#e5e1d8]">
-              <div className="w-10 h-10 rounded bg-[#071326] text-white font-bold flex items-center justify-center text-base mb-4">
-                2
+            <div className="bg-[#fbfbf9] rounded p-6 border border-[#e5e1d8] flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded bg-[#071326] text-white font-bold flex items-center justify-center text-base mb-4">
+                  2
+                </div>
+                <h3 className="text-base font-bold text-[#0b1d3a] mb-2 font-serif">Campus Visit</h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  Visit our campus at Tapovan Sanskar Pith, Amiyapur to inspect smart classrooms and sports facilities.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-[#0b1d3a] mb-2 font-serif">Campus Tour &amp; Counseling</h3>
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                Visit our Amiyapur campus, explore smart classrooms, laboratories, sports grounds, and meet the faculty.
-              </p>
               <Link href="/contact" className="text-xs font-bold text-[#0b1d3a] hover:underline">
-                Campus Location &amp; Hours &rarr;
+                Location &amp; Hours &rarr;
               </Link>
             </div>
 
-            <div className="bg-[#fbfbf9] rounded p-6 border border-[#e5e1d8]">
-              <div className="w-10 h-10 rounded bg-emerald-700 text-white font-bold flex items-center justify-center text-base mb-4">
-                3
+            <div className="bg-[#fbfbf9] rounded p-6 border border-[#e5e1d8] flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded bg-[#b8860b] text-white font-bold flex items-center justify-center text-base mb-4">
+                  3
+                </div>
+                <h3 className="text-base font-bold text-[#0b1d3a] mb-2 font-serif">Counsellor Interaction</h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  One-on-one interaction with the admission counsellor to understand student goals, strengths, and curriculum fit.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-[#0b1d3a] mb-2 font-serif">Verification &amp; Admission</h3>
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                Submit basic documents (Birth Certificate, LC/TC, marksheet, Aadhar Card) and confirm your admission.
-              </p>
-              <a href="/assets/docs/fee-structure-2025-26.pdf" target="_blank" className="text-xs font-bold text-emerald-800 hover:underline">
-                Download Official Fee Schedule &rarr;
-              </a>
+              <span className="text-[11px] text-[#8b6508] font-bold">Academic Orientation</span>
+            </div>
+
+            <div className="bg-[#fbfbf9] rounded p-6 border border-[#e5e1d8] flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded bg-emerald-700 text-white font-bold flex items-center justify-center text-base mb-4">
+                  4
+                </div>
+                <h3 className="text-base font-bold text-[#0b1d3a] mb-2 font-serif">Document Submission</h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  Submit Birth Certificate, Student &amp; Parents&apos; Aadhaar, School Leaving Certificate / TC, previous report card, and photographs.
+                </p>
+              </div>
+              <span className="text-[11px] text-emerald-800 font-bold">Office Fee Enquiry</span>
             </div>
           </div>
         </div>
@@ -219,12 +239,10 @@ export default function AdmissionsPage() {
                     className="w-full px-3.5 py-2.5 rounded border border-[#d6d0c2] text-sm focus:outline-none focus:ring-1 focus:ring-[#071326] focus:border-[#071326] bg-white"
                   >
                     <option value="">Select Grade</option>
-                    <option value="Pre-Primary (Nursery, LKG, UKG)">Pre-Primary (Nursery, LKG, UKG)</option>
-                    <option value="Primary (Class 1 to 5)">Primary (Class 1 to 5)</option>
+                    <option value="Primary (Class 1 to 5) — Min Age 6+">Primary (Class 1 to 5) — Min Age 6+</option>
                     <option value="Middle School (Class 6 to 8)">Middle School (Class 6 to 8)</option>
-                    <option value="Secondary (Class 9 to 10)">Secondary (Class 9 to 10)</option>
-                    <option value="Senior Secondary - Science (Class 11-12)">Senior Secondary - Science (Class 11-12)</option>
-                    <option value="Senior Secondary - Commerce (Class 11-12)">Senior Secondary - Commerce (Class 11-12)</option>
+                    <option value="Secondary (Class 9 & 10)">Secondary (Class 9 &amp; 10)</option>
+                    <option value="Senior Secondary - Commerce (XI & XII)">Senior Secondary - Commerce (XI &amp; XII)</option>
                   </select>
                 </div>
                 <div>

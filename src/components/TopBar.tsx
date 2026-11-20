@@ -9,7 +9,7 @@ export default function TopBar() {
         {/* Left Information */}
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-4 text-center md:text-left text-[11px] sm:text-xs">
           <span className="inline-flex items-center gap-1.5 text-[#d4af37] font-medium">
-            <Award className="w-3.5 h-3.5 shrink-0" /> CBSE Affiliated Senior Secondary Day School
+            <Award className="w-3.5 h-3.5 shrink-0" /> CBSE Boys Day School (Affiliation #430592 • Code: 11722)
           </span>
           <span className="hidden lg:inline text-slate-600">•</span>
           <span className="hidden sm:inline-flex items-center gap-1.5 text-slate-300">

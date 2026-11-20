@@ -141,33 +141,33 @@ export default function HomePage() {
   const faqData = [
     {
       q: 'When do admissions begin for Academic Session 2027-28?',
-      a: 'Admissions for Academic Session 2027-28 are currently open for Pre-Primary (Nursery, LKG, UKG) through Class 12 (Science and Commerce streams). Parents can submit an online enquiry form or visit the school office Monday to Saturday between 9:00 AM and 4:00 PM.',
+      a: 'Admissions for Academic Session 2027-28 are currently open for Std 1 through Class 12 (Commerce stream) for boys. Parents can submit an online enquiry form, schedule a campus visit, or visit the school office Monday to Saturday between 9:00 AM and 4:00 PM.',
       category: 'Admissions'
     },
     {
-      q: 'What are the daily school hours for day scholars?',
-      a: 'Regular school classes run from 7:30 AM to 2:30 PM (Monday to Friday) and 7:30 AM to 12:30 PM on Saturdays. The administrative office remains open until 4:00 PM for parent interactions and enquiries.',
+      q: 'What are the daily school hours and schedule?',
+      a: 'School reporting is at 7:30 AM with morning prayer & assembly at 7:40 AM. Classes for Std 1 to 11 run from 7:40 AM to 1:40 PM, and for Std 12 from 7:40 AM to 1:00 PM (Monday to Saturday). Short recess is from 8:20 AM to 8:35 AM and lunch break from 11:15 AM to 11:45 AM. The administrative office is open from 9:00 AM to 4:00 PM.',
       category: 'Timings'
     },
     {
-      q: 'Which senior secondary streams are offered in Class 11 and 12?',
-      a: 'We offer two recognized CBSE streams: 1) Science Stream (PCM - Physics, Chemistry, Mathematics or PCB - Physics, Chemistry, Biology with Computer Science/Physical Education) and 2) Commerce Stream (Accountancy, Business Studies, Economics with or without Applied Mathematics).',
+      q: 'Which senior secondary stream is offered in Class 11 and 12?',
+      a: 'We offer the recognized CBSE Commerce Stream (Classes 11 & 12) featuring Accountancy, Business Studies, Economics, English Core, Physical Education, and optional Informatics Practices / Applied Mathematics.',
       category: 'Academics'
     },
     {
-      q: 'Does the school provide safe bus transportation?',
-      a: 'Yes. Our GPS-tracked school bus fleet operates across major sectors of Gandhinagar, Amiyapur, Chandkheda, Motera, and Ahmedabad with verified drivers and female attendants on each route.',
-      category: 'Transport'
+      q: 'What is the minimum age criterion for Class 1 admission?',
+      a: 'As per CBSE and NEP norms, the student must be 6+ years of age on or before 31st March of the admission year.',
+      category: 'Eligibility'
     },
     {
       q: 'What documents are required at the time of admission?',
-      a: 'Required documents include: 1) Original Birth Certificate, 2) Transfer Certificate (TC/School Leaving Certificate) from the previous recognized school, 3) Previous class Marksheet, 4) Student & Parent Aadhar Cards, and 5) Passport-size photographs.',
+      a: 'Required documents include: 1) Birth Certificate, 2) Student Aadhaar Card, 3) Parents Aadhaar Cards, 4) Previous School Leaving Certificate (TC), 5) Previous Year Report Card, and 6) Recent Passport-size Photographs.',
       category: 'Documents'
     },
     {
-      q: 'What is the student-to-teacher ratio at Tapovan Vatsalyadham?',
-      a: 'We maintain a healthy 20:1 student-to-teacher ratio to ensure personalized academic attention, constructive mentor-student discussions, and timely remedial support.',
-      category: 'Pedagogy'
+      q: 'Is Tapovan Vatsalyadham a co-educational or boys school?',
+      a: 'Tapovan Vatsalyadham School (English Medium) is an English medium CBSE Boys Day School, dedicated to holistic character building, academic excellence, and physical discipline.',
+      category: 'About'
     }
   ];
   const [faqSearch, setFaqSearch] = useState('');
@@ -220,12 +220,12 @@ export default function HomePage() {
           {/* Quick Floating Status Pill Bar (Awwwards Style) */}
           <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 mb-6 backdrop-blur-sm">
             <span className="flex items-center gap-1.5 text-[#d4af37] font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5" /> CBSE Affiliated #430489
+              <ShieldCheck className="w-3.5 h-3.5" /> CBSE Affiliated #430592 (Code: 11722)
             </span>
             <span className="text-slate-600 hidden sm:inline">•</span>
-            <span className="text-slate-300 hidden sm:inline">English Medium Day School</span>
+            <span className="text-slate-300 hidden sm:inline">English Medium Boys Day School</span>
             <span className="text-slate-600 hidden md:inline">•</span>
-            <span className="text-slate-400 hidden md:inline">Amiyapur, Gandhinagar</span>
+            <span className="text-slate-400 hidden md:inline">Near Tapovan Circle, Gandhinagar</span>
             <span className="bg-[#d4af37]/20 text-[#d4af37] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-[#d4af37]/30">
               Admissions 2027-28 Open
             </span>
@@ -237,7 +237,7 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="text-xs uppercase font-bold tracking-[0.2em] text-[#d4af37] flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                <span>A Premier CBSE Learning Community</span>
+                <span>धर्मो रक्षति रक्षितः • Premier CBSE Boys Learning Community</span>
               </div>
 
               {/* Master Two-Tone Headline (Aurevia Reference) */}
@@ -247,7 +247,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-xl leading-relaxed font-normal">
-                A future-ready CBSE Day School education that balances academic excellence, scientific innovation, and timeless ethical character at our 20+ acre green campus under the aegis of Jivan Jagruti Trust.
+                A future-ready CBSE English Medium Boys Day School (Std 1 to 12 Commerce) that balances academic rigor, ethical character, and physical fitness at our 20+ acre green campus under the aegis of Jivan Jagruti Trust.
               </p>
 
               {/* Primary Call to Actions (Aurevia Style Dual Action) */}
@@ -309,20 +309,20 @@ export default function HomePage() {
               {/* 4 Authentic Metric Tiles */}
               <div className="grid grid-cols-2 gap-2.5 mt-3 pt-3 border-t border-slate-800">
                 <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
-                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">100%</div>
-                  <div className="text-[11px] text-slate-300">CBSE Pass Rate</div>
+                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">430592</div>
+                  <div className="text-[11px] text-slate-300">CBSE Affiliation #</div>
                 </div>
                 <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
-                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">20 : 1</div>
-                  <div className="text-[11px] text-slate-300">Student-Mentor Ratio</div>
+                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">Boys Only</div>
+                  <div className="text-[11px] text-slate-300">Day School Format</div>
+                </div>
+                <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
+                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">Std 1 to 12</div>
+                  <div className="text-[11px] text-slate-300">Commerce in 11 &amp; 12</div>
                 </div>
                 <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
                   <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">20+ Acres</div>
                   <div className="text-[11px] text-slate-300">Green Campus</div>
-                </div>
-                <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
-                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">Sr. Sec.</div>
-                  <div className="text-[11px] text-slate-300">Science &amp; Commerce</div>
                 </div>
               </div>
             </div>
@@ -337,19 +337,19 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x divide-[#e5e1d8]">
             <div className="px-3">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">CBSE Affiliation</div>
-              <div className="text-xs text-slate-600 mt-1">Affiliation No. 430489 • Senior Secondary</div>
+              <div className="text-xs text-slate-600 mt-1">Affiliation No. 430592 • School Code 11722</div>
             </div>
             <div className="px-3">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">English Medium</div>
-              <div className="text-xs text-slate-600 mt-1">Nursery to Class 12 Curriculum</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">Boys Day School</div>
+              <div className="text-xs text-slate-600 mt-1">English Medium (Std 1 to 12 Commerce)</div>
             </div>
             <div className="px-3">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">Jivan Jagruti Trust</div>
-              <div className="text-xs text-slate-600 mt-1">Non-Profit Value-Infused Governance</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">धर्मो रक्षति रक्षितः</div>
+              <div className="text-xs text-slate-600 mt-1">Governed by Jivan Jagruti Trust</div>
             </div>
             <div className="px-3">
               <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">Session 2027-28</div>
-              <div className="text-xs text-[#8b6508] font-semibold mt-1">Admissions Open Now</div>
+              <div className="text-xs text-[#8b6508] font-semibold mt-1">Admissions Open Now (Age 6+ for Std 1)</div>
             </div>
           </div>
         </div>
@@ -383,32 +383,40 @@ export default function HomePage() {
 
             {/* Narrative Column */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="badge-editorial">Institutional Foundation</span>
+              <span className="badge-editorial">Institutional Vision</span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1d3a] font-serif leading-[1.14] tracking-tight">
-                Cultivating Individuality and Academic Excellence
+                Shaping Academically Accomplished Young Men
               </h2>
 
               <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                <strong>Tapovan Vatsalyadham School (English Medium)</strong> is an English medium day school located along the Sabarmati-Gandhinagar Highway in Amiyapur. Dedicated to nurturing holistic student capability, we provide an environment where rigorous scholastic achievement, digital smart pedagogy, and foundational moral values move together in harmony.
+                <strong>Tapovan Vatsalyadham School (English Medium)</strong> is an English medium CBSE Boys Day School (Affiliation #430592 • School Code 11722) located near Tapovan Circle in Amiyapur, Gandhinagar. Led by Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong> under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>, our mission is to cultivate clarity of thought, resilience, and leadership.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                <div className="bg-white p-5 rounded-xl border border-[#e5e1d8] shadow-sm">
-                  <div className="flex items-center gap-2 text-[#0b1d3a] font-bold text-sm mb-1.5 font-serif">
-                    <Target className="w-4 h-4 text-[#b8860b] shrink-0" /> Our Mission
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    To produce sensitive, diligent, dynamic, patriotic, and ethical leaders who contribute positively to national growth and global harmony.
-                  </p>
+              {/* Chairman's Guiding Creed Card */}
+              <div className="bg-[#fcf8ee] p-5 rounded-xl border border-[#ebdcb8] text-left">
+                <div className="text-[10px] font-mono font-bold text-[#8b6508] uppercase tracking-wider">Managing Trustee &amp; Leadership Vision</div>
+                <div className="text-sm font-serif font-bold text-[#0b1d3a] mt-1 italic">
+                  &quot;To shape academically accomplished young men who think with clarity, are future fluent, stand strong and resilient and lead beyond self — living Bhakti, Maitri, Shuddhi and Shaurya through their choices and actions.&quot;
                 </div>
+              </div>
 
-                <div className="bg-white p-5 rounded-xl border border-[#e5e1d8] shadow-sm">
-                  <div className="flex items-center gap-2 text-[#0b1d3a] font-bold text-sm mb-1.5 font-serif">
-                    <Lightbulb className="w-4 h-4 text-[#b8860b] shrink-0" /> Our Philosophy
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Every child is unique and creative. We do not produce robots; we strain every nerve to kindle the flame of independent inquiry and wisdom.
-                  </p>
+              {/* 4 Virtues Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">भक्ति (Bhakti)</div>
+                  <div className="text-[10px] text-[#8b6508] mt-0.5">Devotion &amp; Reverence</div>
+                </div>
+                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">मैत्री (Maitri)</div>
+                  <div className="text-[10px] text-[#8b6508] mt-0.5">Brotherhood &amp; Harmony</div>
+                </div>
+                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">शुद्धि (Shuddhi)</div>
+                  <div className="text-[10px] text-[#8b6508] mt-0.5">Moral Purity &amp; Truth</div>
+                </div>
+                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">शौर्य (Shaurya)</div>
+                  <div className="text-[10px] text-[#8b6508] mt-0.5">Courage &amp; Resilience</div>
                 </div>
               </div>
 
@@ -441,57 +449,43 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            {/* Pre-Primary */}
-            <div className="editorial-card p-6 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Early Years</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Pre-Primary (Nursery, LKG, UKG)</h3>
-                <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Play-based sensory discovery, early phonics, number sense, motor skill coordination, and social habit development in joyful environments.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
-                Focus: Cognitive Discovery &amp; Motor Skills
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {/* Primary */}
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Foundations</span>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Foundations (Std 1–5)</span>
                 <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Primary School (Grades 1 to 5)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Core competencies in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and Visual Arts.
+                  Core competencies in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and character values. Minimum age: 6+ years as on 31st March.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
-                Focus: Conceptual Logic &amp; Reading Habits
+                Focus: Conceptual Logic &amp; Literacy (Age 6+)
               </div>
             </div>
 
             {/* Middle School */}
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Preparatory</span>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Preparatory (Std 6–8)</span>
                 <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Middle School (Grades 6 to 8)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
                   Dedicated sciences (Physics, Chemistry, Biology), Social Sciences, Sanskrit, Computer Applications, and Vedic mathematics principles.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
-                Focus: Analytical Reasoning &amp; Lab Practical
+                Focus: Analytical Reasoning &amp; Lab Practicals
               </div>
             </div>
 
             {/* Secondary */}
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">CBSE Board</span>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">CBSE Board (Std 9–10)</span>
                 <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Secondary School (Grades 9 &amp; 10)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Rigorous CBSE Board preparation, continuous formative assessments, extensive laboratory work, and regular mock examinations.
+                  Rigorous CBSE Board preparation, continuous formative assessments, laboratory practicals, and mock examination drills for Class 10 success.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
@@ -499,31 +493,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Senior Secondary - Science */}
-            <div className="editorial-card p-6 flex flex-col justify-between border-t-2 border-t-[#0b1d3a]">
-              <div>
-                <span className="text-[10px] font-bold text-[#0b1d3a] uppercase tracking-wider">Senior Secondary Stream</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Science Stream (XI &amp; XII)</h3>
-                <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Physics, Chemistry, Mathematics / Biology, English Core, Computer Science, and Physical Education with JEE, NEET, and CUET guidance.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-[#0b1d3a] font-bold">
-                Options: PCM &amp; PCB with Laboratory Mentorship
-              </div>
-            </div>
-
             {/* Senior Secondary - Commerce */}
             <div className="editorial-card p-6 flex flex-col justify-between border-t-2 border-t-[#b8860b]">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Senior Secondary Stream</span>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Sr. Secondary (Std 11–12)</span>
                 <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Commerce Stream (XI &amp; XII)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Accountancy, Business Studies, Economics, English Core, Applied Mathematics / Informatics Practices, and CA Foundation readiness.
+                  Accountancy, Business Studies, Economics, English Core, Applied Mathematics / Informatics Practices, and Physical Education with CA Foundation preparedness.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-[#8b6508] font-bold">
-                Options: Commerce with / without Mathematics
+                Timings: Std 11 (7:40-1:40) | Std 12 (7:40-1:00)
               </div>
             </div>
 
@@ -659,7 +639,7 @@ export default function HomePage() {
                 </span>
                 <h4 className="font-bold text-sm text-[#0b1d3a] mt-3 mb-1">Session 2027-28 Enrollment Open</h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Registrations for Pre-Primary up to Class 12 (Science &amp; Commerce) are underway. Contact school desk for campus visits.
+                  Registrations for Std 1 up to Class 12 (Commerce Stream) are open for boys. Age 6+ for Std 1. Contact school desk for campus visits.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] mt-4 flex items-center justify-between text-[11px] text-slate-500">
@@ -1007,11 +987,9 @@ export default function HomePage() {
                     className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
                   >
                     <option value="">Select Grade</option>
-                    <option value="Pre-Primary (Nursery, LKG, UKG)">Pre-Primary (Nursery, LKG, UKG)</option>
-                    <option value="Primary (Class 1 to 5)">Primary (Class 1 to 5)</option>
+                    <option value="Primary (Class 1 to 5)">Primary (Class 1 to 5) — Min Age 6+</option>
                     <option value="Middle School (Class 6 to 8)">Middle School (Class 6 to 8)</option>
                     <option value="Secondary (Class 9 & 10)">Secondary (Class 9 &amp; 10)</option>
-                    <option value="Senior Secondary - Science (XI & XII)">Senior Secondary - Science (XI &amp; XII)</option>
                     <option value="Senior Secondary - Commerce (XI & XII)">Senior Secondary - Commerce (XI &amp; XII)</option>
                   </select>
                 </div>
@@ -1114,18 +1092,26 @@ export default function HomePage() {
                   <div>
                     <h4 className="font-bold text-[#0b1d3a] text-sm">School Campus Address</h4>
                     <p className="mt-0.5 leading-relaxed">
-                      Tapovan Sanskar Pith, Amiyapur, Post - Sughad, Sabarmati-Gandhinagar Highway, Taluka Chandkheda, District Gandhinagar, Gujarat - 382424
+                      Tapovan Sanskar Pith, Near Tapovan Circle, Amiyapur, Gandhinagar, Gujarat - 382424
                     </p>
+                    <a
+                      href="https://maps.app.goo.gl/rvkxjZTvtcjEL9YS8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-[#b8860b] font-semibold hover:underline mt-1 inline-block"
+                    >
+                      Open in Google Maps &rarr;
+                    </a>
                   </div>
                 </div>
 
                 <div className="p-4 bg-white rounded border border-[#e5e1d8] flex items-start gap-3">
                   <Phone className="w-5 h-5 text-[#0b1d3a] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-[#0b1d3a] text-sm">Direct Office Numbers</h4>
+                    <h4 className="font-bold text-[#0b1d3a] text-sm">Direct Office &amp; Principal Numbers</h4>
                     <p className="mt-0.5">
-                      Admissions Desk: <a href="tel:+919737691800" className="text-[#0b1d3a] font-bold hover:underline">+91 9737691800</a><br />
-                      Principal Office: <a href="tel:+919574523601" className="text-[#0b1d3a] font-bold hover:underline">+91 9574523601</a>
+                      Admissions Helpline: <a href="tel:+919737691800" className="text-[#0b1d3a] font-bold hover:underline">+91 9737691800</a><br />
+                      Principal Office (Mrs. Rupa Shah): <a href="tel:+919574523601" className="text-[#0b1d3a] font-bold hover:underline">+91 9574523601</a>
                     </p>
                   </div>
                 </div>
@@ -1133,10 +1119,13 @@ export default function HomePage() {
                 <div className="p-4 bg-white rounded border border-[#e5e1d8] flex items-start gap-3">
                   <Clock className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-[#0b1d3a] text-sm">Campus Timings</h4>
-                    <p className="mt-0.5 leading-relaxed">
-                      Student Classes: Monday to Friday 7:30 AM – 2:30 PM | Saturday 7:30 AM – 12:30 PM<br />
-                      Administrative Office: Monday to Saturday 9:00 AM – 4:00 PM
+                    <h4 className="font-bold text-[#0b1d3a] text-sm">Official School Timings (Mon–Sat)</h4>
+                    <p className="mt-0.5 leading-relaxed text-[11px]">
+                      • Reporting &amp; Assembly: <strong>7:30 AM &amp; 7:40 AM</strong><br />
+                      • Classes (Std 1 to 11): <strong>7:40 AM – 1:40 PM</strong><br />
+                      • Classes (Std 12 Commerce): <strong>7:40 AM – 1:00 PM</strong><br />
+                      • Short Recess: <strong>8:20 AM – 8:35 AM</strong> | Lunch Break: <strong>11:15 AM – 11:45 AM</strong><br />
+                      • Administrative Office: <strong>9:00 AM – 4:00 PM</strong>
                     </p>
                   </div>
                 </div>

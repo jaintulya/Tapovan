@@ -70,35 +70,40 @@ export default function MandatoryDisclosurePage() {
                 <tr className="hover:bg-slate-50">
                   <td className="py-3 px-4 font-bold text-[#0b1d3a]">1</td>
                   <td className="py-3 px-4 font-semibold">Name of the School</td>
-                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">TAPOVAN VATSALYADHAM SCHOOL (English Medium)</td>
+                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">TAPOVAN VATSALYADHAM SCHOOL (ENGLISH MEDIUM)</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-3 px-4 font-bold text-[#0b1d3a]">2</td>
-                  <td className="py-3 px-4 font-semibold">Affiliation Category</td>
-                  <td className="py-3 px-4 font-semibold text-[#8b6508]">CBSE Senior Secondary (English Medium) • Affiliation No. 430489</td>
+                  <td className="py-3 px-4 font-semibold">Affiliation Details</td>
+                  <td className="py-3 px-4 font-semibold text-[#8b6508]">CBSE Affiliation No. <strong>430592</strong> • School Code: <strong>11722</strong> (Affiliated since 2025)</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-3 px-4 font-bold text-[#0b1d3a]">3</td>
-                  <td className="py-3 px-4 font-semibold">Managing Trust</td>
-                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">Jivan Jagruti Trust (Non-Profit Educational Trust)</td>
+                  <td className="py-3 px-4 font-semibold">School Category &amp; Medium</td>
+                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">Boys Day School • English Medium • Std 1 to 12 (Commerce Stream)</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-3 px-4 font-bold text-[#0b1d3a]">4</td>
-                  <td className="py-3 px-4 font-semibold">Complete Address with Pincode</td>
-                  <td className="py-3 px-4">Tapovan Sanskar Pith, Amiyapur, Post - Sughad, Sabarmati-Gandhinagar Highway, Taluka Chandkheda, Gandhinagar, Gujarat - 382424</td>
+                  <td className="py-3 px-4 font-semibold">Managing Trust</td>
+                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">JIVAN JAGRUTI TRUST</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-3 px-4 font-bold text-[#0b1d3a]">5</td>
-                  <td className="py-3 px-4 font-semibold">Principal Contact</td>
-                  <td className="py-3 px-4"><a href="tel:+919574523601" className="text-[#0b1d3a] font-bold hover:underline">+91 9574523601</a></td>
+                  <td className="py-3 px-4 font-semibold">Complete Address with Pincode</td>
+                  <td className="py-3 px-4">Tapovan sanskar pith, near Tapovan Circle, Gandhinagar, Amiyapur, Gujarat 382424</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="py-3 px-4 font-bold text-[#0b1d3a]">6</td>
+                  <td className="py-3 px-4 font-semibold">Principal Name &amp; Contact</td>
+                  <td className="py-3 px-4">Mrs. Rupa Chirag Shah (M.Sc., M.Ed.) • <a href="tel:+919574523601" className="text-[#0b1d3a] font-bold hover:underline">+91 9574523601</a></td>
+                </tr>
+                <tr className="hover:bg-slate-50">
+                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">7</td>
                   <td className="py-3 px-4 font-semibold">School Office Contact</td>
                   <td className="py-3 px-4"><a href="tel:+919737691800" className="text-[#0b1d3a] font-bold hover:underline">+91 9737691800</a></td>
                 </tr>
                 <tr className="hover:bg-slate-50">
-                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">7</td>
+                  <td className="py-3 px-4 font-bold text-[#0b1d3a]">8</td>
                   <td className="py-3 px-4 font-semibold">Official Email</td>
                   <td className="py-3 px-4"><a href="mailto:vatsalyadham@gmail.com" className="text-[#0b1d3a] font-bold hover:underline">vatsalyadham@gmail.com</a></td>
                 </tr>

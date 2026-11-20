@@ -19,20 +19,22 @@ export default function Footer() {
               />
               <div>
                 <div className="text-white font-serif font-bold text-lg tracking-tight">TAPOVAN VATSALYADHAM</div>
-                <div className="text-[#d4af37] text-xs font-semibold uppercase tracking-wider">English Medium Day School</div>
+                <div className="text-[#d4af37] text-xs font-semibold uppercase tracking-wider">English Medium Boys Day School</div>
               </div>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              A premier senior secondary English medium institution affiliated with the Central Board of Secondary Education (CBSE), New Delhi. Dedicated to cultivating intellectual depth, moral integrity, and social responsibility under the aegis of Jivan Jagruti Trust.
+              A premier senior secondary English medium boys institution affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation #430592 • School Code: 11722). Dedicated to cultivating intellectual depth, moral integrity, and social responsibility under the aegis of Jivan Jagruti Trust.
             </p>
             <div className="text-xs text-slate-400 space-y-1.5 pt-1">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#d4af37] shrink-0 mt-0.5" />
-                <span>Tapovan Sanskar Pith, Amiyapur, Post - Sughad, Sabarmati-Gandhinagar Highway, Gandhinagar - 382424</span>
+                <a href="https://maps.app.goo.gl/rvkxjZTvtcjEL9YS8" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Tapovan Sanskar Pith, Near Tapovan Circle, Amiyapur, Gandhinagar, Gujarat - 382424
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                <span>CBSE Affiliated Senior Secondary (English Medium)</span>
+                <span>CBSE Affiliated Senior Secondary Boys School (Affiliation #430592)</span>
               </div>
             </div>
           </div>
@@ -99,7 +101,7 @@ export default function Footer() {
               Admissions Desk
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Admissions open for Nursery to Class 12 (Science &amp; Commerce) for Academic Session 2027-28.
+              Admissions open for Std 1 to 12 (Commerce Stream) for Academic Session 2027-28.
             </p>
             <div className="text-xs space-y-1.5 text-slate-300">
               <div className="flex items-center gap-2">

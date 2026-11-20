@@ -93,7 +93,7 @@ export default function Navbar() {
                   TAPOVAN VATSALYADHAM
                 </div>
                 <div className="text-[10px] sm:text-[11px] font-semibold text-[#8b6508] uppercase tracking-wider leading-none mt-0.5 whitespace-nowrap">
-                  English Medium School
+                  English Medium Boys School
                 </div>
               </div>
             </Link>

@@ -80,33 +80,22 @@ export default function AcademicsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 1</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Pre-Primary (Nursery, LKG, UKG)</h3>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 1 (Std 1 to 5)</span>
+                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Primary School</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Play-based and sensory learning. Introduction to language sounds, numerical concepts, nature observation, and joyful social interaction.
+                  Building strong foundations in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and Art. (Minimum age: 6+ years as on 31st March).
                 </p>
               </div>
-              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">Focus: Cognitive &amp; Motor Development</div>
+              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">Focus: Language, Logic &amp; Numeracy (Age 6+)</div>
             </div>
 
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 2</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Primary School (Grades 1 to 5)</h3>
-                <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Building strong foundations in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and Art.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">Focus: Language, Logic &amp; Reading</div>
-            </div>
-
-            <div className="editorial-card p-6 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 3</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Middle School (Grades 6 to 8)</h3>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 2 (Std 6 to 8)</span>
+                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Middle School</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
                   Differentiated Science (Physics, Chemistry, Biology), Social Sciences, Sanskrit, Computer Applications, and Vedic mathematics principles.
                 </p>
@@ -116,35 +105,24 @@ export default function AcademicsPage() {
 
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 4</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Secondary (Grades 9 &amp; 10)</h3>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 3 (Std 9 &amp; 10)</span>
+                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Secondary School</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Rigorous CBSE Board syllabus preparation. Comprehensive laboratory practicals, continuous formative assessments, and regular mock exams.
+                  Rigorous CBSE Board syllabus preparation. Comprehensive science experiments, digital computer labs, continuous formative assessments, and regular mock exams.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">Focus: CBSE Board Excellence</div>
             </div>
 
-            <div className="editorial-card p-6 flex flex-col justify-between border-t-2 border-t-[#0b1d3a]">
-              <div>
-                <span className="text-[10px] font-bold text-[#0b1d3a] uppercase tracking-wider">Stage 5A</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Senior Secondary - Science (XI &amp; XII)</h3>
-                <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  English Core, Physics, Chemistry, Mathematics / Biology, Physical Education, and Computer Science. Direct guidance for JEE, NEET, and CUET.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-[#0b1d3a] font-bold">Streams: PCM &amp; PCB</div>
-            </div>
-
             <div className="editorial-card p-6 flex flex-col justify-between border-t-2 border-t-[#b8860b]">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 5B</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Senior Secondary - Commerce (XI &amp; XII)</h3>
+                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Stage 4 (Std 11 &amp; 12)</span>
+                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Senior Secondary — Commerce</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  English Core, Accountancy, Business Studies, Economics, Applied Mathematics / Informatics Practices, and Physical Education. CA Foundation prep.
+                  Specialized Commerce Stream: English Core, Accountancy, Business Studies, Economics, and Applied Mathematics / Informatics Practices / Physical Education. Focused mentoring for CBSE Boards and CA Foundation.
                 </p>
               </div>
-              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-[#8b6508] font-bold">Stream: Commerce with / without Maths</div>
+              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-[#8b6508] font-bold">Timings: Std 11 (7:40–1:40) | Std 12 (7:40–1:00)</div>
             </div>
           </div>
         </div>
