@@ -47,7 +47,6 @@ export default function FloatingActions() {
     };
   }, [isOpen]);
 
-  // Robust Cross-Browser Scroll to Top
   const scrollToTop = (e?: React.MouseEvent) => {
     if (e) {
       e.preventDefault();
@@ -86,32 +85,35 @@ export default function FloatingActions() {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 select-none"
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end select-none"
     >
-      {/* Floating Back to Top Button (floats above action widget) */}
+      {/* 1. Floating Back to Top Button:
+             Directly above the main button when closed;
+             Horizontally centered with the 52px main button via mr-1.5 (6px);
+             Pushes up smoothly above the speed dial when open */}
       <button
         type="button"
         onClick={scrollToTop}
         aria-label="Back to Top"
-        className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-[#1b3832] border border-[#dcd7cb] shadow-lg flex items-center justify-center hover:bg-[#1b3832] hover:text-[#dfc488] hover:border-[#1b3832] transition-all duration-200 active:scale-95 cursor-pointer ${
+        className={`w-10 h-10 rounded-full bg-white text-[#1b3832] border border-[#dcd7cb] shadow-lg flex items-center justify-center hover:bg-[#1b3832] hover:text-[#dfc488] hover:border-[#1b3832] transition-all duration-300 active:scale-90 cursor-pointer mr-1.5 ${
           showBackToTop
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 translate-y-2 pointer-events-none'
+            ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto mb-2.5'
+            : 'opacity-0 scale-75 translate-y-2 pointer-events-none h-0 w-0 p-0 m-0 border-0 overflow-hidden'
         }`}
         title="Back to Top"
       >
         <ArrowUp className="w-5 h-5 stroke-[2.5]" />
       </button>
 
-      {/* Speed Dial Menu Options (Pop up vertically on click) */}
+      {/* 2. Speed Dial Menu Options (Pop up between Back-to-Top and Main Button) */}
       <div
-        className={`flex flex-col items-end gap-2.5 transition-all duration-200 origin-bottom-right ${
+        className={`flex flex-col items-end gap-2.5 transition-all duration-300 ease-out origin-bottom-right ${
           isOpen
-            ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 scale-90 translate-y-3 pointer-events-none'
+            ? 'max-h-72 opacity-100 scale-100 pointer-events-auto mb-2.5 py-0.5'
+            : 'max-h-0 opacity-0 scale-95 pointer-events-none mb-0 py-0 overflow-hidden'
         }`}
       >
-        {/* 1. Admission Enquiry Button (Mobile + PC) */}
+        {/* Admission Enquiry Button */}
         <Link
           href="/#admission-form"
           onClick={handleEnquiryClick}
@@ -124,7 +126,7 @@ export default function FloatingActions() {
           </span>
         </Link>
 
-        {/* 2. Call Helpline Button (Mobile ONLY - hidden on md & desktop) */}
+        {/* Call Helpline Button (Mobile ONLY) */}
         <a
           href="tel:+919737691800"
           onClick={() => setIsOpen(false)}
@@ -137,7 +139,7 @@ export default function FloatingActions() {
           </span>
         </a>
 
-        {/* 3. WhatsApp Button (Mobile + PC) */}
+        {/* WhatsApp Button */}
         <a
           href={`https://wa.me/919737691800?text=${whatsappMessage}`}
           target="_blank"
@@ -153,13 +155,13 @@ export default function FloatingActions() {
         </a>
       </div>
 
-      {/* Main Single Floating Contact Trigger Button */}
+      {/* 3. Main Single Floating Contact Trigger Button */}
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-label={isOpen ? 'Close Contact Menu' : 'Open Contact Options'}
-        className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-200 active:scale-95 border-2 border-white cursor-pointer ${
+        className={`rounded-full flex items-center justify-center shadow-xl transition-all duration-300 active:scale-95 border-2 border-white cursor-pointer ${
           isOpen
             ? 'bg-[#1b3832] text-[#dfc488] shadow-2xl'
             : 'bg-[#1b3832] text-white hover:bg-[#244c44] hover:shadow-2xl'
