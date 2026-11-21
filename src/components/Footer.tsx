@@ -36,7 +36,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Dedicated to academic rigor and character building under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>. Fostering Bhakti, Maitri, Shuddhi, and Shaurya.
+              Dedicated to academic excellence and ethical leadership under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>. Fostering Bhakti, Maitri, Shuddhi, and Shaurya.
             </p>
 
             <div className="space-y-2 pt-1 text-xs text-slate-300">

@@ -1,11 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Phone, ArrowUp } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Phone, ArrowUp, MessageCircle, X, GraduationCap } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 export default function FloatingActions() {
+  const [isOpen, setIsOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,15 +23,31 @@ export default function FloatingActions() {
       setShowBackToTop(scrollPos > 150);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Robust, Cross-Browser Scroll to Top
+  // Close when clicking outside or pressing Escape
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
+  // Robust Cross-Browser Scroll to Top
   const scrollToTop = (e?: React.MouseEvent) => {
     if (e) {
       e.preventDefault();
@@ -47,89 +68,111 @@ export default function FloatingActions() {
     }
   };
 
+  const handleEnquiryClick = (e: React.MouseEvent) => {
+    setIsOpen(false);
+    if (pathname === '/') {
+      const el = document.getElementById('admission-form');
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   const whatsappMessage = encodeURIComponent(
     'Hello Tapovan Vatsalyadham School, I would like to enquire about Admissions for Academic Session 2027-28.'
   );
 
   return (
-    <>
-      {/* 1. Desktop Floating WhatsApp Button & Back-To-Top (Visible on md and above) */}
-      <div className="hidden md:flex flex-col items-end gap-3 fixed bottom-6 right-6 z-50 select-none">
-        {/* Desktop Back to Top */}
-        <button
-          type="button"
-          onClick={scrollToTop}
-          aria-label="Back to Top"
-          className={`w-11 h-11 rounded-full bg-white text-[#1b3832] border border-[#dcd7cb] shadow-lg flex items-center justify-center hover:bg-[#1b3832] hover:text-[#dfc488] hover:border-[#1b3832] transition-all duration-200 active:scale-95 cursor-pointer ${
-            showBackToTop
-              ? 'opacity-100 translate-y-0 pointer-events-auto'
-              : 'opacity-0 translate-y-2 pointer-events-none'
-          }`}
-          title="Back to Top"
-        >
-          <ArrowUp className="w-5 h-5 stroke-[2.5]" />
-        </button>
+    <div
+      ref={containerRef}
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 select-none"
+    >
+      {/* Floating Back to Top Button (floats above action widget) */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Back to Top"
+        className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-[#1b3832] border border-[#dcd7cb] shadow-lg flex items-center justify-center hover:bg-[#1b3832] hover:text-[#dfc488] hover:border-[#1b3832] transition-all duration-200 active:scale-95 cursor-pointer ${
+          showBackToTop
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 translate-y-2 pointer-events-none'
+        }`}
+        title="Back to Top"
+      >
+        <ArrowUp className="w-5 h-5 stroke-[2.5]" />
+      </button>
 
-        {/* Desktop WhatsApp Circular FAB */}
+      {/* Speed Dial Menu Options (Pop up vertically on click) */}
+      <div
+        className={`flex flex-col items-end gap-2.5 transition-all duration-200 origin-bottom-right ${
+          isOpen
+            ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 scale-90 translate-y-3 pointer-events-none'
+        }`}
+      >
+        {/* 1. Admission Enquiry Button (Mobile + PC) */}
+        <Link
+          href="/#admission-form"
+          onClick={handleEnquiryClick}
+          className="group flex items-center gap-2.5 bg-white border border-[#dfc488] text-[#1b3832] hover:bg-[#1b3832] hover:text-white px-3.5 py-2 rounded-full shadow-lg transition-all duration-150 active:scale-95 cursor-pointer"
+          aria-label="Admission Enquiry"
+        >
+          <span className="text-xs font-semibold whitespace-nowrap">Admission Enquiry</span>
+          <span className="w-8 h-8 rounded-full bg-[#dfc488] text-[#1b3832] flex items-center justify-center shrink-0 shadow-xs">
+            <GraduationCap className="w-4 h-4" />
+          </span>
+        </Link>
+
+        {/* 2. Call Helpline Button (Mobile ONLY - hidden on md & desktop) */}
+        <a
+          href="tel:+919737691800"
+          onClick={() => setIsOpen(false)}
+          className="md:hidden group flex items-center gap-2.5 bg-white border border-[#1b3832]/20 text-[#1b3832] hover:bg-[#1b3832] hover:text-white px-3.5 py-2 rounded-full shadow-lg transition-all duration-150 active:scale-95"
+          aria-label="Call School Helpline"
+        >
+          <span className="text-xs font-semibold whitespace-nowrap">Call Helpline</span>
+          <span className="w-8 h-8 rounded-full bg-[#1b3832] text-[#dfc488] flex items-center justify-center shrink-0 shadow-xs">
+            <Phone className="w-4 h-4" />
+          </span>
+        </a>
+
+        {/* 3. WhatsApp Button (Mobile + PC) */}
         <a
           href={`https://wa.me/919737691800?text=${whatsappMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat with Admissions Office on WhatsApp"
-          className="group relative flex items-center justify-center w-13 h-13 rounded-full bg-[#25D366] text-white shadow-xl hover:bg-[#20ba59] transition-all duration-200 active:scale-95 border-2 border-white"
-          style={{ width: '52px', height: '52px' }}
-          title="Chat on WhatsApp"
+          onClick={() => setIsOpen(false)}
+          className="group flex items-center gap-2.5 bg-white border border-[#25D366]/40 text-[#1b3832] hover:bg-[#25D366] hover:text-white px-3.5 py-2 rounded-full shadow-lg transition-all duration-150 active:scale-95"
+          aria-label="Chat on WhatsApp"
         >
-          <WhatsAppIcon className="w-7 h-7 fill-current" />
-          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-[#1b3832] text-white text-xs font-semibold px-3 py-1.5 rounded-md shadow-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 whitespace-nowrap">
-            Chat with Admissions
+          <span className="text-xs font-semibold whitespace-nowrap">WhatsApp</span>
+          <span className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs">
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
           </span>
         </a>
       </div>
 
-      {/* 2. Mobile Floating Back to Top Button (Sits above the mobile bar) */}
-      <div
-        className={`md:hidden fixed bottom-[72px] right-4 z-40 transition-all duration-200 ${
-          showBackToTop
-            ? 'opacity-100 translate-y-0 pointer-events-auto scale-100'
-            : 'opacity-0 translate-y-2 pointer-events-none scale-75'
+      {/* Main Single Floating Contact Trigger Button */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-label={isOpen ? 'Close Contact Menu' : 'Open Contact Options'}
+        className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-200 active:scale-95 border-2 border-white cursor-pointer ${
+          isOpen
+            ? 'bg-[#1b3832] text-[#dfc488] shadow-2xl'
+            : 'bg-[#1b3832] text-white hover:bg-[#244c44] hover:shadow-2xl'
         }`}
+        style={{ width: '52px', height: '52px' }}
+        title="Contact & Admissions"
       >
-        <button
-          type="button"
-          onClick={scrollToTop}
-          aria-label="Back to Top"
-          className="w-10 h-10 rounded-full bg-white text-[#1b3832] border border-[#dcd7cb] shadow-md flex items-center justify-center active:scale-90"
-        >
-          <ArrowUp className="w-4 h-4 stroke-[2.5]" />
-        </button>
-      </div>
-
-      {/* 3. Mobile Fixed Bottom Action Bar (Call + WhatsApp) */}
-      <aside
-        aria-label="Quick Contact Actions"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-[#e5e1d8] px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-2xl flex items-center gap-2"
-      >
-        <a
-          href="tel:+919737691800"
-          className="flex-1 bg-[#1b3832] hover:bg-[#285149] text-white font-semibold py-2.5 px-3 rounded-lg text-xs flex items-center justify-center gap-2 transition-colors active:scale-95 shadow-sm"
-          aria-label="Call Helpline"
-        >
-          <Phone className="w-4 h-4 shrink-0 text-[#dfc488]" />
-          <span>Call Helpline</span>
-        </a>
-
-        <a
-          href={`https://wa.me/919737691800?text=${whatsappMessage}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold py-2.5 px-3 rounded-lg text-xs flex items-center justify-center gap-2 transition-colors active:scale-95 shadow-sm"
-          aria-label="Chat on WhatsApp"
-        >
-          <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
-          <span>WhatsApp</span>
-        </a>
-      </aside>
-    </>
+        {isOpen ? (
+          <X className="w-6 h-6 stroke-[2.5]" />
+        ) : (
+          <MessageCircle className="w-6 h-6 stroke-[2.2]" />
+        )}
+      </button>
+    </div>
   );
 }

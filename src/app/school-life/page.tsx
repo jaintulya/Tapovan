@@ -260,7 +260,7 @@ export default function SchoolLifePage() {
               <div className="w-12 h-12 rounded-lg bg-[#f8f6f8] text-[#553f56] border border-[#e3dae4] flex items-center justify-center text-xl mb-4 font-bold">
                 <Sparkles className="w-6 h-6 text-[#553f56]" />
               </div>
-              <h3 className="text-base font-bold text-[#1b3832] mb-2 font-serif">Yoga, Values &amp; Character</h3>
+              <h3 className="text-base font-bold text-[#1b3832] mb-2 font-serif">Yoga &amp; Value-Based Living</h3>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 Daily yogic asanas, pranayama, Surya Namaskar, and value reflections instilling honesty, respect for elders, discipline, and emotional balance.
               </p>

@@ -40,7 +40,7 @@ export default function RootLayout({
         <ScrollProgress />
         <TopBar />
         <Navbar />
-        <main className="min-h-screen w-full max-w-full overflow-x-hidden pb-16 md:pb-0">
+        <main className="min-h-screen w-full max-w-full overflow-x-hidden">
           {children}
         </main>
         <Footer />

@@ -38,7 +38,7 @@ export default function FacilitiesPage() {
       id: 'library',
       title: 'Classroom Reading & Academic Study Room',
       category: 'Books & Reference',
-      image: '/assets/images/classroom_learning.jpg',
+      image: '/assets/images/library.jpg',
       desc: 'A quiet reading and reference environment with NCERT textbooks, curriculum reference volumes, educational periodicals, newspapers, and designated weekly reading periods for all grades.',
       specs: ['Curriculum Reference Collection', 'Quiet Reading Spaces', 'Weekly Supervised Reading Periods'],
     },
@@ -70,7 +70,7 @@ export default function FacilitiesPage() {
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-serif">Campus Infrastructure &amp; Facilities</h1>
           <p className="text-slate-200 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
-            Six purpose-built learning spaces on our ~4.82-acre campus in Amiyapur, Gandhinagar, designed for academic excellence, physical health, and character building.
+            Six purpose-built learning spaces on our ~4.82-acre campus in Amiyapur, Gandhinagar, designed for academic excellence, physical health, and holistic student development.
           </p>
         </div>
       </section>

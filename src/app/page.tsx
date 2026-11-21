@@ -114,7 +114,7 @@ export default function HomePage() {
       id: 'library',
       name: 'Classroom Reading & Academic Study',
       category: 'Books & Reference',
-      image: '/assets/images/classroom_learning.jpg',
+      image: '/assets/images/library.jpg',
       description: 'Supervised reading and curriculum reference study with NCERT textbooks, curriculum reference volumes, educational periodicals, and designated study periods.',
       specs: ['NCERT Curriculum Reference Books', 'Quiet Reading Spaces', 'Weekly Reading & Study Periods']
     },
@@ -135,7 +135,6 @@ export default function HomePage() {
       specs: ['Public Address Sound Setup', 'Stage & Presentation Area', 'Indoor Student Events']
     }
   ];
-  const [activeLocation, setActiveLocation] = useState(campusLocations[0]);
 
   // 3. Essential Parent FAQs (8 questions in clean accordions)
   const faqData = [
@@ -227,7 +226,7 @@ export default function HomePage() {
             {/* Master Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.12]">
               A Place to Learn, Grow<br />
-              <span className="text-[#dfc488]">and Build Character.</span>
+              <span className="text-[#dfc488]">and Excel.</span>
             </h1>
 
             <p className="text-slate-200 text-sm sm:text-base max-w-2xl leading-relaxed">
@@ -269,7 +268,7 @@ export default function HomePage() {
             </div>
             <div className="px-3">
               <div className="text-xl sm:text-2xl font-bold text-[#1b3832] font-serif">Boys Day School</div>
-              <div className="text-xs text-slate-500 font-medium mt-1">Character &amp; Academic Focus</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">Holistic Academic Focus</div>
             </div>
             <div className="px-3">
               <div className="text-xl sm:text-2xl font-bold text-[#1b3832] font-serif">Amiyapur, Gandhinagar</div>
@@ -284,8 +283,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-            {/* Left Image Card */}
-            <div className="lg:col-span-5 relative">
+            {/* Left Image Card - Centered on Mobile */}
+            <div className="lg:col-span-5 relative max-w-sm sm:max-w-md mx-auto lg:mx-0 w-full">
               <div className="rounded-2xl border border-[#e5e1d8] overflow-hidden bg-white shadow-md relative aspect-[4/5] max-h-[460px]">
                 <img
                   src="/assets/images/campus_assembly.jpg"
@@ -295,12 +294,12 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#dfc488]">Values In Practice</span>
-                  <div className="font-serif font-bold text-base mt-0.5">Character Precedes Career</div>
+                  <div className="font-serif font-bold text-base mt-0.5">Nurturing Future Leaders</div>
                 </div>
               </div>
               <div className="mt-4 p-4 bg-white border border-[#e5e1d8] rounded-xl text-left shadow-xs">
                 <div className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Our Governing Principle</div>
-                <div className="text-sm font-serif font-bold text-[#1b3832] mt-0.5">&quot;Education Dedicated to Character, Clarity and Service&quot;</div>
+                <div className="text-sm font-serif font-bold text-[#1b3832] mt-0.5">&quot;Education Dedicated to Excellence, Clarity and Service&quot;</div>
                 <p className="text-xs text-slate-500 mt-1">Managed under the philanthropic stewardship of Jivan Jagruti Trust.</p>
               </div>
             </div>
@@ -313,7 +312,7 @@ export default function HomePage() {
               </h2>
 
               <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                Rooted in the timeless ideal of &quot;धर्मो रक्षति रक्षितः&quot;, Tapovan Vatsalyadham School provides an environment where young men cultivate intellectual brilliance, moral conviction, and physical stamina. Led by Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong> under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>, our education balances rigorous CBSE preparation with character-first values.
+                Rooted in the timeless ideal of &quot;धर्मो रक्षति रक्षितः&quot;, Tapovan Vatsalyadham School provides an environment where young men cultivate intellectual brilliance, moral conviction, and physical stamina. Led by Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong> under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>, our education balances rigorous CBSE preparation with value-driven holistic development.
               </p>
 
               {/* Leadership Creed Card */}
@@ -379,7 +378,7 @@ export default function HomePage() {
                 <span className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Foundations (Std 1–5)</span>
                 <h3 className="font-serif font-bold text-base text-[#1b3832] mt-1 mb-2">Primary Wing (Classes 1–5)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Core competencies in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and character values. Minimum age: 6+ years on or before 31st March.
+                  Core competencies in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and foundational values. Minimum age: 6+ years on or before 31st March.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
@@ -436,91 +435,67 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive Campus Explorer (6 Authentic Categories) */}
-      <section className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
+      {/* Campus Infrastructure & Learning Spaces (Mobile-First 6-Card Grid) */}
+      <section className="py-16 sm:py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
             <div>
               <span className="badge-editorial mb-2">Campus Infrastructure</span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
-                Explore Our Campus Facilities
+                Campus Facilities &amp; Learning Spaces
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm mt-1 max-w-xl">
-                Click on any facility to view authentic photographs, equipment specifications, and student capacities.
+                Purpose-built spaces across our ~4.82-acre campus designed for focused academics, scientific discovery, and physical wellness.
               </p>
             </div>
             <Link href="/facilities" className="btn-outline text-xs font-semibold shrink-0">
-              Browse All 6 Facilities &rarr;
+              Browse All Facilities &rarr;
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-            {/* Selector Tabs */}
-            <div className="lg:col-span-4 space-y-2">
-              {campusLocations.map((loc) => {
-                const isSelected = activeLocation.id === loc.id;
-                return (
-                  <button
-                    key={loc.id}
-                    onClick={() => setActiveLocation(loc)}
-                    className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between ${
-                      isSelected
-                        ? 'bg-[#1b3832] text-white border-[#1b3832] shadow-sm'
-                        : 'bg-white text-slate-800 border-[#e5e1d8] hover:border-slate-400'
-                    }`}
-                  >
-                    <div>
-                      <div className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#dfc488]' : 'text-slate-500'}`}>
-                        {loc.category}
-                      </div>
-                      <div className="font-semibold text-xs sm:text-sm mt-0.5">{loc.name}</div>
-                    </div>
-                    <ArrowRight className={`w-4 h-4 shrink-0 transition-transform ${isSelected ? 'translate-x-1 text-[#dfc488]' : 'opacity-30'}`} />
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Facility Display Card */}
-            <div className="lg:col-span-8 bg-white rounded-2xl border border-[#e5e1d8] overflow-hidden shadow-sm">
-              <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
-                <img
-                  src={activeLocation.image}
-                  alt={activeLocation.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-opacity duration-300"
-                />
-                <span className="absolute top-4 left-4 bg-[#1b3832]/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
-                  {activeLocation.category}
-                </span>
-              </div>
-              <div className="p-6 sm:p-8 space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {campusLocations.map((loc) => (
+              <div
+                key={loc.id}
+                className="bg-white rounded-2xl border border-[#e5e1d8] overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
                 <div>
-                  <h3 className="font-serif font-bold text-xl text-[#1b3832]">
-                    {activeLocation.name}
-                  </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-2">
-                    {activeLocation.description}
-                  </p>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <img
+                      src={loc.image}
+                      alt={loc.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-3 left-3 bg-[#1b3832]/90 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
+                      {loc.category}
+                    </span>
+                  </div>
+                  <div className="p-5 sm:p-6 space-y-2">
+                    <h3 className="font-serif font-bold text-lg text-[#1b3832]">
+                      {loc.name}
+                    </h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                      {loc.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#e5e1d8]">
-                  <div className="text-[11px] font-bold text-[#856124] uppercase tracking-wider mb-2">
-                    Key Features &amp; Specifications:
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {activeLocation.specs.map((spec, sIdx) => (
-                      <span key={sIdx} className="inline-flex items-center gap-1.5 bg-[#faf9f5] border border-[#e5e1d8] px-3 py-1 rounded-md text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-[#c29b38]" /> {spec}
+                <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-3 border-t border-[#f0ece1]">
+                  <div className="flex flex-wrap gap-1.5">
+                    {loc.specs.map((spec, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="inline-flex items-center gap-1 bg-[#faf9f5] border border-[#e5e1d8] px-2.5 py-1 rounded-md text-[11px] text-slate-700 font-medium"
+                      >
+                        <Check className="w-3 h-3 text-[#c29b38] shrink-0" /> {spec}
                       </span>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
-
+            ))}
           </div>
 
         </div>
@@ -682,7 +657,7 @@ export default function HomePage() {
 
             <div className="bg-[#faf9f5] p-6 rounded-xl border border-[#e5e1d8] flex flex-col justify-between shadow-xs">
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 italic">
-                &quot;I am impressed by the school&apos;s commitment to character building alongside academics. Teachers give personalized attention, and the campus environment is peaceful and completely distraction-free.&quot;
+                &quot;I am impressed by the school&apos;s commitment to holistic development alongside academics. Teachers give personalized attention, and the campus environment is peaceful and completely distraction-free.&quot;
               </p>
               <div className="flex items-center gap-3 pt-4 border-t border-[#e5e1d8]">
                 <div className="w-9 h-9 rounded-full bg-[#c29b38] text-white flex items-center justify-center font-bold text-xs">SK</div>

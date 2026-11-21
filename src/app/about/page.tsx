@@ -45,7 +45,7 @@ export default function AboutPage() {
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-serif">About Tapovan Vatsalyadham</h1>
           <p className="text-slate-200 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
-            A recognized CBSE affiliated Boys Day School managed by Jivan Jagruti Trust, dedicated to character building, intellectual clarity, and academic excellence.
+            A recognized CBSE affiliated Boys Day School managed by Jivan Jagruti Trust, dedicated to intellectual clarity, ethical leadership, and academic excellence.
           </p>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function AboutPage() {
             <div className="lg:col-span-6 space-y-5">
               <span className="badge-editorial">Institutional Heritage</span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif leading-tight">
-                Character Precedes Career: Education Grounded in Values
+                Education Grounded in Excellence & Values
               </h2>
               <div className="inline-block bg-[#fbf8f0] text-[#856124] border border-[#ebdbb4] text-xs font-serif font-bold px-3 py-1 rounded">
                 Motto: धर्मो रक्षति रक्षितः
@@ -98,7 +98,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-            <span className="badge-editorial">Character Foundation</span>
+            <span className="badge-editorial">Foundational Values</span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
               The Four Virtues of Tapovan
             </h2>
@@ -119,7 +119,7 @@ export default function AboutPage() {
                   <p className="text-xs text-slate-700 leading-relaxed">{v.desc}</p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-black/10 flex items-center gap-1.5 text-[11px] font-semibold">
-                  <CheckCircle className="w-3.5 h-3.5" /> Character in Daily Action
+                  <CheckCircle className="w-3.5 h-3.5" /> Values in Daily Practice
                 </div>
               </div>
             ))}
