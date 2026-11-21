@@ -1,60 +1,91 @@
 import React from 'react';
 import Link from 'next/link';
-import { Target, Lightbulb, HeartHandshake, Eye, FileText, Users } from 'lucide-react';
+import { Target, Lightbulb, HeartHandshake, Eye, FileText, Users, Award, ShieldCheck, CheckCircle } from 'lucide-react';
 
 export const metadata = {
   title: 'About Us | Tapovan Vatsalyadham School (English Medium)',
-  description: 'History, ethos, philosophy, and governance of Tapovan Vatsalyadham School, Gandhinagar. Managed by Jivan Jagruti Trust.',
+  description: 'History, leadership, vision, and core virtues of Tapovan Vatsalyadham School, Gandhinagar. Managed by Jivan Jagruti Trust.',
 };
 
 export default function AboutPage() {
+  const coreVirtues = [
+    {
+      title: 'Bhakti (भक्ति)',
+      subtitle: 'Devotion & Gratitude',
+      desc: 'Cultivating reverence for knowledge, respect for parents and teachers, and a humble sense of gratitude toward society and the nation.',
+      color: 'bg-[#fbf8f0] border-[#ebdbb4] text-[#856124]',
+    },
+    {
+      title: 'Maitri (मैत्री)',
+      subtitle: 'Brotherhood & Fellowship',
+      desc: 'Fostering deep camaraderie, empathy, and mutual support among boys, encouraging collaborative learning and lifelong friendships.',
+      color: 'bg-[#f0f5f3] border-[#c4dbd5] text-[#233d38]',
+    },
+    {
+      title: 'Shuddhi (शुद्धि)',
+      subtitle: 'Purity in Thought & Action',
+      desc: 'Instilling mental clarity, ethical discipline, and truthfulness in daily choices, personal habits, and academic honesty.',
+      color: 'bg-[#f8f6f8] border-[#e3dae4] text-[#553f56]',
+    },
+    {
+      title: 'Shaurya (शौर्य)',
+      subtitle: 'Courage & Resilience',
+      desc: 'Building inner fortitude, sportsmanship, and mental stamina to face challenges, accept failures gracefully, and lead with confidence.',
+      color: 'bg-[#fbf8f0] border-[#ebdbb4] text-[#856124]',
+    },
+  ];
+
   return (
     <>
       {/* Header Banner */}
-      <section className="bg-[#071326] text-white py-16 sm:py-20 border-b border-slate-800">
+      <section className="bg-[#1b3832] text-white py-16 sm:py-20 border-b border-[#233d38]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-xs text-[#d4af37] font-semibold mb-2 flex items-center gap-2">
+          <div className="text-xs text-[#dfc488] font-semibold mb-2 flex items-center gap-2">
             <Link href="/" className="hover:underline">Home</Link> &gt; <span>About Us</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-serif">About Tapovan Vatsalyadham</h1>
-          <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
-            Fostering timeless cultural values, academic excellence, and holistic character as a premier CBSE Day School under the aegis of Jivan Jagruti Trust.
+          <p className="text-slate-200 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+            A recognized CBSE affiliated Boys Day School managed by Jivan Jagruti Trust, dedicated to character building, intellectual clarity, and academic excellence.
           </p>
         </div>
       </section>
 
-      {/* Main Philosophy & Background */}
+      {/* Main Introduction & Institutional Heritage */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-5">
-              <span className="badge-editorial">Our Foundation</span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif leading-tight">
-                Where Character Precedes Career: Education as a Sacred Trust
+              <span className="badge-editorial">Institutional Heritage</span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif leading-tight">
+                Character Precedes Career: Education Grounded in Values
               </h2>
-              <div className="inline-block bg-[#fdfaf2] text-[#8b6508] border border-[#ebdcb8] text-xs font-serif font-bold px-3 py-1 rounded">
+              <div className="inline-block bg-[#fbf8f0] text-[#856124] border border-[#ebdbb4] text-xs font-serif font-bold px-3 py-1 rounded">
                 Motto: धर्मो रक्षति रक्षितः
               </div>
               <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                <strong>Tapovan Vatsalyadham School (English Medium)</strong> is a premier CBSE affiliated English medium Boys Day School (Affiliation No. 430592 • School Code 11722) located near Tapovan Circle in Amiyapur, Gandhinagar. Inspired by timeless Indian values and operating under the philanthropic stewardship of the <strong>Jivan Jagruti Trust</strong>, we present a balanced synthesis of academic excellence, athletic vitality, and ethical character formation for Std 1 to 12 (Commerce Stream).
+                <strong>Tapovan Vatsalyadham School (English Medium)</strong> is an English-medium CBSE affiliated Boys Day School (Affiliation No. <strong>430592</strong> • School Code: <strong>11722</strong>, Affiliated since 2025) located at Tapovan Sanskar Pith, near Tapovan Circle, Amiyapur, Gandhinagar.
               </p>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Under the academic leadership of Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong>, our educational approach is designed to cultivate independent inquiry, mental resilience, and global competence in young men without losing connection with their cultural roots.
+                Managed under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>, our campus spans ~4.82 acres (19,525 sq. meters) of peaceful, distraction-free environment. Led by Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong>, our school provides balanced schooling from Class 1 through Class 12 (offering the Commerce stream at the Senior Secondary level).
               </p>
-              <div className="p-4 bg-[#fcf8ee] rounded border border-[#ebdcb8] text-xs sm:text-sm text-[#7a5907] font-serif italic">
+              <div className="p-4 bg-[#fbf8f0] rounded border border-[#ebdbb4] text-xs sm:text-sm text-[#856124] font-serif italic leading-relaxed">
                 &quot;To shape academically accomplished young men who think with clarity, are future fluent, stand strong and resilient and lead beyond self — living Bhakti, Maitri, Shuddhi and Shaurya through their choices and actions.&quot;
               </div>
             </div>
 
             <div className="lg:col-span-6">
-              <div className="rounded overflow-hidden shadow-md border border-[#e5e1d8] bg-slate-100">
+              <div className="rounded-xl overflow-hidden shadow-lg border border-[#e5e1d8] bg-slate-100">
                 <img 
-                  src="/assets/images/campus_assembly.jpg" 
-                  alt="Students in Morning Prayer Assembly" 
+                  src="/assets/images/campus_walk.jpg" 
+                  alt="Tapovan Vatsalyadham Campus Walkway and Grounds" 
                   loading="lazy"
                   className="w-full h-auto object-cover" 
                 />
+                <div className="p-4 bg-[#faf9f5] border-t border-[#e5e1d8] text-xs text-slate-600 flex items-center justify-between">
+                  <span className="font-semibold text-[#1b3832]">Amiyapur Campus, Gandhinagar</span>
+                  <span className="text-[11px] text-slate-500">19,525 sq. m Campus Grounds</span>
+                </div>
               </div>
             </div>
 
@@ -62,58 +93,83 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4 Pillars Section */}
-      <section id="vision" className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8] scroll-mt-24">
+      {/* The 4 Core Virtues */}
+      <section className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-            <span className="badge-editorial">Our Guiding Compass</span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif">
-              Mission, Vision, Philosophy &amp; Promise
+            <span className="badge-editorial">Character Foundation</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
+              The Four Virtues of Tapovan
             </h2>
-            <p className="text-slate-600 text-sm">
-              The foundational pillars that guide our daily pedagogical practices and student mentorship.
+            <p className="text-slate-600 text-xs sm:text-sm">
+              Our code of student life that translates Indian heritage into practical leadership principles.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {coreVirtues.map((v, i) => (
+              <div key={i} className={`p-6 rounded-xl border ${v.color} shadow-sm flex flex-col justify-between`}>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider mb-1 font-serif">
+                    Virtue 0{i + 1}
+                  </div>
+                  <h3 className="text-lg font-bold font-serif mb-0.5">{v.title}</h3>
+                  <div className="text-xs font-medium opacity-90 mb-3">{v.subtitle}</div>
+                  <p className="text-xs text-slate-700 leading-relaxed">{v.desc}</p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-black/10 flex items-center gap-1.5 text-[11px] font-semibold">
+                  <CheckCircle className="w-3.5 h-3.5" /> Character in Daily Action
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Mission, Vision & Philosophy Cards */}
+      <section id="vision" className="py-20 bg-white border-t border-[#e5e1d8]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
+            <span className="badge-editorial">Institutional Framework</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
+              Mission, Vision &amp; Philosophy
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm">
+              The pillars that guide our curriculum, daily interactions, and educational commitments.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="editorial-card p-6 sm:p-8">
-              <div className="w-10 h-10 rounded bg-[#fdfaf2] text-[#8b6508] border border-[#ebdcb8] flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-[#fbf8f0] text-[#856124] border border-[#ebdbb4] flex items-center justify-center mb-4">
                 <Target className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-serif font-bold text-[#0b1d3a] mb-2">Our Mission</h3>
+              <h3 className="text-base font-serif font-bold text-[#1b3832] mb-2">Our Mission</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                &quot;To produce the sensitive, laborious, dynamic, patriotic and spiritual leaders for bringing up perfect global amity.&quot;
+                To nurture sensitive, industrious, resilient, and morally grounded leaders who think critically, act ethically, and contribute constructively to the community and the nation.
               </p>
             </div>
 
             <div className="editorial-card p-6 sm:p-8">
-              <div className="w-10 h-10 rounded bg-slate-100 text-[#0b1d3a] border border-slate-200 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-[#f0f5f3] text-[#1b3832] border border-[#c4dbd5] flex items-center justify-center mb-4">
                 <Eye className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-serif font-bold text-[#0b1d3a] mb-2">Our Vision</h3>
+              <h3 className="text-base font-serif font-bold text-[#1b3832] mb-2">Our Vision</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                &quot;To transform the school into a vibrant centre of multifarious activities aiming to ignite minds for unfolding youth potentials.&quot;
+                To transform our institution into a vibrant center of holistic learning that unfolds the unique potential of each boy through academic rigor, sports, and value education.
               </p>
             </div>
 
             <div className="editorial-card p-6 sm:p-8">
-              <div className="w-10 h-10 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-lg bg-[#f8f6f8] text-[#553f56] border border-[#e3dae4] flex items-center justify-center mb-4">
                 <Lightbulb className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-serif font-bold text-[#0b1d3a] mb-2">Our Philosophy</h3>
+              <h3 className="text-base font-serif font-bold text-[#1b3832] mb-2">Our Philosophy</h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                &quot;Every child is unique and creative as well. We strive sincerely to kindle in him the flame of knowledge and wisdom. We are reluctant to produce robots but strain every nerve to produce the intellectuals who possess depth of virtues and height of knowledge.&quot;
-              </p>
-            </div>
-
-            <div className="editorial-card p-6 sm:p-8">
-              <div className="w-10 h-10 rounded bg-[#f7f5ef] text-[#0b1d3a] border border-[#ded9cb] flex items-center justify-center mb-4">
-                <HeartHandshake className="w-5 h-5 text-[#8b6508]" />
-              </div>
-              <h3 className="text-lg font-serif font-bold text-[#0b1d3a] mb-2">Our Promise</h3>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                &quot;We believe in selfless service, compassion, generosity, tolerance, honesty, and truthfulness. We foster in students the moral values so they lead a meaningful life of spiritual commitments and ethical perfection.&quot;
+                Every child is unique. We kindle intellectual curiosity and moral depth, steering away from robotic memorization toward deep conceptual clarity and lifelong integrity.
               </p>
             </div>
           </div>
@@ -121,27 +177,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Trust Governance */}
-      <section id="governance" className="py-20 bg-white border-t border-[#e5e1d8] scroll-mt-24">
+      {/* Sponsoring Trust Governance */}
+      <section id="governance" className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0b1d3a] text-white rounded border border-slate-700 p-8 sm:p-12 shadow-xl">
+          <div className="bg-[#1b3832] text-white rounded-2xl border border-[#2f514b] p-8 sm:p-12 shadow-xl">
             <div className="max-w-3xl space-y-4">
-              <span className="badge-editorial bg-[#fdfaf2] text-[#8b6508]">
-                Leadership &amp; Governance
+              <span className="badge-editorial bg-[#fbf8f0] text-[#856124] border-none">
+                Governance &amp; Stewardship
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold font-serif">
                 Managed By Jivan Jagruti Trust
               </h2>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                The Jivan Jagruti Trust was established with the pious mission of uplifting youth through value-infused education. Backed by visionary educationists, the school functions under strict non-profit governance: <em>&quot;People not profits – education is a sacred responsibility, not a commercial enterprise.&quot;</em>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                The Jivan Jagruti Trust operates Tapovan Vatsalyadham School on non-profit, philanthropic principles. The managing committee ensures that modern school infrastructure, sports grounds, and qualified faculty serve the holistic growth of students without commercial distortion.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a href="/assets/docs/trust-certificate.pdf" target="_blank" className="btn-accent text-xs font-semibold">
-                  <FileText className="w-4 h-4 mr-1" /> View Trust Registration Certificate
+                  <FileText className="w-4 h-4 mr-1" /> Trust Registration Certificate
                 </a>
                 <a href="/assets/docs/smc-committee.pdf" target="_blank" className="btn-outline-white text-xs font-semibold">
                   <Users className="w-4 h-4 mr-1" /> School Management Committee (SMC)
                 </a>
+                <Link href="/mandatory-disclosure" className="btn-outline-white text-xs font-semibold">
+                  <ShieldCheck className="w-4 h-4 mr-1" /> All CBSE Public Disclosures
+                </Link>
               </div>
             </div>
           </div>

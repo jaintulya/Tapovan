@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Send, CheckCircle, Loader2 } from 'lucide-react';
+import { Send, CheckCircle, Loader2, ShieldCheck } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function AdmissionsPage() {
@@ -252,53 +252,59 @@ export default function AdmissionsPage() {
                     type="text" 
                     value={form.area}
                     onChange={(e) => setForm({...form, area: e.target.value})}
-                    placeholder="e.g. Chandkheda, Gandhinagar, Motera"
+                    placeholder="e.g. Chandkheda, Gandhinagar, Motera, Ahmedabad"
                     className="w-full px-3.5 py-2.5 rounded border border-[#d6d0c2] text-sm focus:outline-none focus:ring-1 focus:ring-[#071326] focus:border-[#071326] bg-white" 
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="adm-notes" className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Transportation Needs</label>
+                <label htmlFor="adm-notes" className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Information</label>
                 <textarea 
                   id="adm-notes"
                   rows={3}
                   value={form.notes}
                   onChange={(e) => setForm({...form, notes: e.target.value})}
-                  placeholder="Mention any queries regarding bus routes, curriculum, or previous schooling..."
+                  placeholder="Mention any queries regarding curriculum, previous schooling, or fee details..."
                   className="w-full px-3.5 py-2.5 rounded border border-[#d6d0c2] text-sm focus:outline-none focus:ring-1 focus:ring-[#071326] focus:border-[#071326] bg-white"
                 ></textarea>
               </div>
 
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full btn-accent justify-center text-sm py-3.5 font-bold uppercase tracking-wider disabled:opacity-50 whitespace-nowrap inline-flex items-center gap-2"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin shrink-0" />
-                    <span>Submitting Enquiry...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4 shrink-0" />
-                    <span>Submit Admission Enquiry (<span className="whitespace-nowrap">2027-28</span>)</span>
-                  </>
-                )}
-              </button>
+              <div>
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full btn-accent justify-center text-sm py-3.5 font-bold uppercase tracking-wider disabled:opacity-50 whitespace-nowrap inline-flex items-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin shrink-0" />
+                      <span>Submitting Enquiry...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 shrink-0" />
+                      <span>Submit Admission Enquiry (<span className="whitespace-nowrap">2027-28</span>)</span>
+                    </>
+                  )}
+                </button>
+                <p className="text-[11px] text-slate-500 text-center mt-3 flex items-center justify-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#b8860b] shrink-0" />
+                  <span>Privacy Notice: Information provided will only be used to respond to your admission enquiry. We respect your privacy and never share parent contact details. View our <Link href="/privacy-policy" className="text-[#0b1d3a] font-medium underline">Privacy Policy</Link>.</span>
+                </p>
+              </div>
             </form>
 
-            {/* Clean Confirmation Modal (No unique code) */}
+            {/* Clean Confirmation Modal */}
             {isSubmitted && (
               <div className="fixed inset-0 z-50 bg-[#071326]/80 backdrop-blur-sm flex items-center justify-center p-4">
                 <div className="bg-white rounded max-w-md w-full p-6 sm:p-8 shadow-2xl text-center space-y-4 border border-[#e5e1d8]">
                   <div className="w-14 h-14 rounded-full bg-[#fcf8ee] text-[#d4af37] border border-[#ebdcb8] flex items-center justify-center mx-auto text-3xl">
                     <CheckCircle className="w-8 h-8 text-[#071326]" />
                   </div>
-                  <h3 className="font-bold text-[#0b1d3a] text-xl font-serif">Enquiry Submitted Successfully</h3>
+                  <h3 className="font-bold text-[#0b1d3a] text-xl font-serif">Enquiry Received</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Thank you, <strong>{form.parentName || 'Parent'}</strong>! We have received your admission enquiry for <strong>{form.studentName || 'your child'}</strong> for Session 2027-28. Our admissions team will reach out to you at <strong>{form.phone}</strong> shortly.
+                    Thank you for contacting Tapovan Vatsalyadham School. Your admission enquiry has been received. A member of our admissions team will contact you using the details provided.
                   </p>
                   
                   <div className="pt-2 flex flex-col sm:flex-row gap-2.5">

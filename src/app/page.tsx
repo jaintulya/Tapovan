@@ -10,8 +10,6 @@ import {
   Download,
   ShieldCheck,
   Sparkles,
-  Target,
-  Lightbulb,
   CheckCircle,
   Send,
   Check,
@@ -19,11 +17,13 @@ import {
   MapPin,
   Clock,
   Loader2,
-  Search,
   ChevronDown,
   ChevronUp,
   X,
-  ArrowRight
+  ArrowRight,
+  Award,
+  BookOpen,
+  Video
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -84,348 +84,272 @@ export default function HomePage() {
     }
   };
 
-  // 2. Interactive Campus Explorer State
+  // 2. Interactive Campus Explorer State (Authentic Photos Only, No Stock Bookshelf or Empty Hall)
   const campusLocations = [
     {
       id: 'academic-block',
-      name: 'Main Academic Complex',
-      category: 'Classrooms & Pedagogy',
+      name: 'Main Academic Building',
+      category: 'Smart Classrooms',
       image: '/assets/images/school_building.jpg',
-      description: 'The central three-story academic facility houses smart digital classrooms, administrative sanctum, and faculty collaboration zones designed with expansive natural ventilation.',
-      specs: ['Smart Interactive Panels', 'Capacity: 30-35 Per Section', 'CCTV Monitored']
+      description: 'A 3-storey building with bright, well-ventilated digital smart classrooms, administrative offices, staff rooms, and monitored corridors.',
+      specs: ['Interactive Digital Panels', 'Comfortable Student Seating', 'CCTV Monitored Campus']
     },
     {
       id: 'science-lab',
       name: 'Composite Science Laboratories',
-      category: 'STEM Practicals',
+      category: 'Science Practicals',
       image: '/assets/images/science_lab.jpg',
-      description: 'Comprehensive experimental stations for Physics, Chemistry, and Biology built to strict CBSE senior secondary standards with safety equipment and optical gear.',
-      specs: ['Individual Student Workbenches', 'Modern Reagents & Apparatus', 'Fire-Safe Design']
+      description: 'Fully equipped practical stations for Physics, Chemistry, and Biology where students conduct hands-on experiments under teacher supervision.',
+      specs: ['Individual Student Workbenches', 'Modern Science Apparatus', 'Fire-Safe Laboratory Design']
     },
     {
       id: 'computer-lab',
-      name: 'Advanced IT & Coding Lab',
-      category: 'Digital Literacy',
+      name: 'Computer & IT Laboratory',
+      category: 'Computer Education',
       image: '/assets/images/computer_lab.jpg',
-      description: 'Dedicated workstations networked on gigabit fiber LAN with cyber-filtered access, Python and Scratch coding tools, and multimedia development suites.',
-      specs: ['1:1 Student to Computer Ratio', 'High-Speed Broadband', 'Digital Skills Curriculum']
+      description: 'Modern computer lab with individual systems, high-speed fiber internet, and supervised foundational coding instruction.',
+      specs: ['1:1 Student Computer Access', 'High-Speed Internet', 'Digital Literacy Curriculum']
     },
     {
       id: 'library',
-      name: 'Central Knowledge Library',
-      category: 'Research & Reading',
-      image: '/assets/images/library.jpg',
-      description: 'A serene reading oasis holding over 5,000 volumes, NCERT reference archives, national dailies, competitive exam guides (JEE, NEET, CUET), and periodicals.',
-      specs: ['5,000+ Printed Titles', 'Quiet Reading Sanctuaries', 'Weekly Research Periods']
+      name: 'Classroom Reading & Academic Study',
+      category: 'Books & Reference',
+      image: '/assets/images/classroom_learning.jpg',
+      description: 'Supervised reading and curriculum reference study with NCERT textbooks, curriculum reference volumes, educational periodicals, and designated study periods.',
+      specs: ['NCERT Curriculum Reference Books', 'Quiet Reading Spaces', 'Weekly Reading & Study Periods']
     },
     {
       id: 'sports-arena',
-      name: 'Sports Complex & Playing Fields',
-      category: 'Physical Education',
+      name: 'Playgrounds & Sports Ground',
+      category: 'Sports & Games',
       image: '/assets/images/sports_ground.jpg',
-      description: 'Expansive open athletic fields accommodating cricket pitches, football turf, volleyball courts, along with indoor facilities for badminton and yoga.',
-      specs: ['Cricket & Football Grounds', 'Indoor Badminton Courts', 'Daily Supervised PE Coaching']
+      description: 'Spacious open grounds for cricket, football, and volleyball, plus dedicated areas for daily physical training, athletics, and yoga.',
+      specs: ['Cricket & Football Play Area', 'Volleyball & Badminton', 'Daily Supervised Sports Coaching']
     },
     {
       id: 'activity-hall',
-      name: 'Multipurpose Cultural & Activity Hall',
-      category: 'Performing Arts & Assemblies',
-      image: '/assets/images/annual_hall_wide.jpg',
-      description: 'Dedicated acoustic auditorium and activity space for daily morning assemblies, cultural competitions, music recitals, yoga sessions, and inter-house debates.',
-      specs: ['Acoustic Sound System', 'Spacious Stage & Podiums', 'Multi-Disciplinary Workshops']
+      name: 'Assembly & Activity Hall',
+      category: 'Events & Functions',
+      image: '/assets/images/annual_day_celebration.jpg',
+      description: 'Spacious multi-purpose hall for daily morning prayers, inter-house debates, cultural functions, celebrations, and student gatherings.',
+      specs: ['Public Address Sound Setup', 'Stage & Presentation Area', 'Indoor Student Events']
     }
   ];
   const [activeLocation, setActiveLocation] = useState(campusLocations[0]);
 
-  // 3. Smart Searchable FAQ State
+  // 3. Essential Parent FAQs (8 questions in clean accordions)
   const faqData = [
     {
-      q: 'When do admissions begin for Academic Session 2027-28?',
-      a: 'Admissions for Academic Session 2027-28 are currently open for Std 1 through Class 12 (Commerce stream) for boys. Parents can submit an online enquiry form, schedule a campus visit, or visit the school office Monday to Saturday between 9:00 AM and 4:00 PM.',
+      q: 'Which classes are accepting admissions for Session 2027-28?',
+      a: 'Admissions for Academic Session 2027-28 are open for Class 1 up to Class 12 (Commerce stream) for boys. Please note that the school begins at Class 1 (there are no pre-primary sections).',
       category: 'Admissions'
     },
     {
-      q: 'What are the daily school hours and schedule?',
-      a: 'School reporting is at 7:30 AM with morning prayer & assembly at 7:40 AM. Classes for Std 1 to 11 run from 7:40 AM to 1:40 PM, and for Std 12 from 7:40 AM to 1:00 PM (Monday to Saturday). Short recess is from 8:20 AM to 8:35 AM and lunch break from 11:15 AM to 11:45 AM. The administrative office is open from 9:00 AM to 4:00 PM.',
-      category: 'Timings'
+      q: 'What is the admission procedure?',
+      a: 'The admission process consists of 4 simple steps: 1) Submit an Online Enquiry, 2) Visit our Campus, 3) One-on-one Interaction with the Admission Counsellor, and 4) Document Submission & Verification.',
+      category: 'Admissions'
     },
     {
-      q: 'Which senior secondary stream is offered in Class 11 and 12?',
-      a: 'We offer the recognized CBSE Commerce Stream (Classes 11 & 12) featuring Accountancy, Business Studies, Economics, English Core, Physical Education, and optional Informatics Practices / Applied Mathematics.',
-      category: 'Academics'
-    },
-    {
-      q: 'What is the minimum age criterion for Class 1 admission?',
-      a: 'As per CBSE and NEP norms, the student must be 6+ years of age on or before 31st March of the admission year.',
+      q: 'What is the minimum age requirement for Class 1 admission?',
+      a: 'As per CBSE and National Education Policy norms, the child must be 6+ years of age on or before 31st March of the admission year.',
       category: 'Eligibility'
     },
     {
-      q: 'What documents are required at the time of admission?',
-      a: 'Required documents include: 1) Birth Certificate, 2) Student Aadhaar Card, 3) Parents Aadhaar Cards, 4) Previous School Leaving Certificate (TC), 5) Previous Year Report Card, and 6) Recent Passport-size Photographs.',
+      q: 'Which stream and subject combinations are available in Classes 11 and 12?',
+      a: 'We offer exclusively the recognized CBSE Commerce Stream. Core subjects include English Core, Accountancy, Business Studies, and Economics. Optional/elective subjects include Physical Education, Informatics Practices, and Applied Mathematics (confirmed during admission counselling). Science and Arts streams are not offered.',
+      category: 'Academics'
+    },
+    {
+      q: 'What are the daily school timings?',
+      a: 'Morning reporting is at 7:30 AM with assembly at 7:40 AM. Classes for Std 1 to 11 run from 7:40 AM to 1:40 PM, and for Std 12 from 7:40 AM to 1:00 PM (Monday to Saturday). Short recess is 8:20–8:35 AM and lunch break is 11:15–11:45 AM. School administrative office is open from 9:00 AM to 4:00 PM.',
+      category: 'Timings'
+    },
+    {
+      q: 'Which documents are required for admission?',
+      a: 'Mandatory documents required are: 1) Birth Certificate, 2) Student Aadhaar Card, 3) Parents Aadhaar Cards, 4) Previous School Leaving Certificate (TC), 5) Previous Year Report Card, and 6) Recent Passport-size Photographs.',
       category: 'Documents'
     },
     {
-      q: 'Is Tapovan Vatsalyadham a co-educational or boys school?',
-      a: 'Tapovan Vatsalyadham School (English Medium) is an English medium CBSE Boys Day School, dedicated to holistic character building, academic excellence, and physical discipline.',
-      category: 'About'
+      q: 'Is school bus transportation available?',
+      a: 'Yes, safe and GPS-monitored school bus transportation is available across Gandhinagar Sectors, Chandkheda, Motera, Sabarmati, and surrounding areas.',
+      category: 'Transport'
+    },
+    {
+      q: 'How can parents arrange a campus visit?',
+      a: 'Parents are welcome to visit the school campus Monday to Saturday between 9:00 AM and 4:00 PM. You can also submit the online enquiry form below or call our admissions helpline at +91 9737691800 to schedule a guided walkthrough.',
+      category: 'Campus Visit'
     }
   ];
-  const [faqSearch, setFaqSearch] = useState('');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  const filteredFaqs = faqData.filter(item =>
-    item.q.toLowerCase().includes(faqSearch.toLowerCase()) ||
-    item.a.toLowerCase().includes(faqSearch.toLowerCase()) ||
-    item.category.toLowerCase().includes(faqSearch.toLowerCase())
-  );
-
-  // 4. Photo Gallery Preview & Lightbox (Curated from Real School Drive)
+  // 4. Photo Gallery Preview & Lightbox (Curated authentic school photographs)
   const galleryPreview = [
-    { src: '/assets/images/campus_aerial.jpg', title: '20+ Acre Green Campus Aerial Horizon View', cat: 'Campus' },
-    { src: '/assets/images/smart_classroom.jpg', title: 'Interactive Smart Digital Classroom Session', cat: 'Academics' },
-    { src: '/assets/images/science_chemistry.jpg', title: 'Composite Science Laboratory Practicals', cat: 'Academics' },
-    { src: '/assets/images/computer_lab.jpg', title: 'Advanced IT & Computer Coding Lab', cat: 'Academics' },
-    { src: '/assets/images/sports_day_track.jpg', title: 'Annual Sports Day 200m Track & Sprint Races', cat: 'Sports' },
-    { src: '/assets/images/yoga_aerial.jpg', title: 'Mass Campus Yoga & Mindful Surya Namaskar', cat: 'Wellness' },
-    { src: '/assets/images/annual_day_celebration.jpg', title: 'Annual Day Cultural Festival & Stage Drama', cat: 'Events' },
-    { src: '/assets/images/campus_assembly.jpg', title: 'Disciplined Morning Prayer & Assembly', cat: 'Campus' },
+    { src: '/assets/images/school_building.jpg', title: 'Main Academic Building', cat: 'Campus' },
+    { src: '/assets/images/smart_classroom.jpg', title: 'Classroom Activities & Teaching', cat: 'Academics' },
+    { src: '/assets/images/science_chemistry.jpg', title: 'Science Laboratory Practicals', cat: 'Academics' },
+    { src: '/assets/images/computer_lab.jpg', title: 'Computer Laboratory', cat: 'Academics' },
+    { src: '/assets/images/sports_day_track.jpg', title: 'Annual Sports Day Events', cat: 'Sports' },
+    { src: '/assets/images/yoga_aerial.jpg', title: 'Morning Yoga & Assembly', cat: 'Wellness' },
+    { src: '/assets/images/annual_day_celebration.jpg', title: 'Annual Day Cultural Performances', cat: 'Events' },
+    { src: '/assets/images/campus_assembly.jpg', title: 'Disciplined Morning Assembly', cat: 'Campus' },
   ];
   const [lightboxImage, setLightboxImage] = useState<{ src: string; title: string } | null>(null);
 
   return (
     <>
-      {/* Live Announcement Ticker */}
+      {/* Announcement Strip */}
       <Ticker />
 
-      {/* Hero Section: Editorial & Institutional with Background Drone Video */}
-      <section className="relative bg-[#071326] text-white overflow-hidden pt-12 sm:pt-16 lg:pt-20 border-b border-slate-800">
-        {/* Background Drone Video with Fallback Still Photo */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster="/assets/images/campus_aerial.jpg"
-            className="w-full h-full object-cover opacity-60 filter saturate-125"
-          >
-            <source src="/assets/videos/hero-campus.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071326]/90 via-[#071326]/65 to-[#071326]/40 pointer-events-none" />
+      {/* Hero Section: Dynamic Background Video with Forest Green Overlay & Architectural Legibility */}
+      <section className="relative text-white overflow-hidden py-20 sm:py-28 lg:py-36 border-b border-[#233d38] min-h-[580px] lg:min-h-[640px] flex items-center bg-[#132824]">
+        {/* Full-Cover Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none"
+        >
+          <source src="/assets/videos/hero-campus.mp4" type="video/mp4" />
+        </video>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-16 lg:pb-20">
+        {/* Deep Forest Green Gradient Overlay for High Legibility & Authentic Brand Presence */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#132824]/95 via-[#1b3832]/85 to-[#132824]/50 z-0" />
+        <div className="absolute inset-0 bg-[#1b3832]/25 z-0" />
 
-          {/* Quick Floating Status Pill Bar (Awwwards Style) */}
-          <div className="inline-flex flex-wrap items-center gap-2 sm:gap-3 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs text-slate-300 mb-6 backdrop-blur-sm">
-            <span className="flex items-center gap-1.5 text-[#d4af37] font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5" /> CBSE Affiliated #430592 (Code: 11722)
-            </span>
-            <span className="text-slate-600 hidden sm:inline">•</span>
-            <span className="text-slate-300 hidden sm:inline">English Medium Boys Day School</span>
-            <span className="text-slate-600 hidden md:inline">•</span>
-            <span className="text-slate-400 hidden md:inline">Near Tapovan Circle, Gandhinagar</span>
-            <span className="bg-[#d4af37]/20 text-[#d4af37] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-[#d4af37]/30">
-              Admissions 2027-28 Open
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-            {/* Left Narrative Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="text-xs uppercase font-bold tracking-[0.2em] text-[#d4af37] flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                <span>धर्मो रक्षति रक्षितः • Premier CBSE Boys Learning Community</span>
-              </div>
-
-              {/* Master Two-Tone Headline (Aurevia Reference) */}
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-[1.08]">
-                Curiosity today.<br />
-                <span className="text-[#d4af37]">Leadership tomorrow.</span>
-              </h1>
-
-              <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-xl leading-relaxed font-normal">
-                A future-ready CBSE English Medium Boys Day School (Std 1 to 12 Commerce) that balances academic rigor, ethical character, and physical fitness at our 20+ acre green campus under the aegis of Jivan Jagruti Trust.
-              </p>
-
-              {/* Primary Call to Actions (Aurevia Style Dual Action) */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <a
-                  href="#admission-form"
-                  className="btn-accent text-xs sm:text-sm py-3.5 px-6 sm:px-7 font-bold whitespace-nowrap inline-flex items-center gap-2"
-                >
-                  <GraduationCap className="w-4 h-4 shrink-0" />
-                  <span>Enquire for 2027-28</span>
-                </a>
-                <Link
-                  href="/about"
-                  prefetch={true}
-                  className="btn-outline-white text-xs sm:text-sm py-3.5 px-5 sm:px-6 whitespace-nowrap inline-flex items-center gap-2"
-                >
-                  <Compass className="w-4 h-4 shrink-0" />
-                  <span>Explore Our School</span>
-                </Link>
-                <a
-                  href="/assets/docs/mandatory-disclosure-2025-26.pdf"
-                  target="_blank"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-[#d4af37] transition-colors py-3 px-2 font-medium whitespace-nowrap"
-                >
-                  <Download className="w-3.5 h-3.5 shrink-0" />
-                  <span>Public Disclosure PDF</span>
-                </a>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl space-y-6 text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs text-[#dfc488]">
+              <Award className="w-3.5 h-3.5 text-[#c29b38] shrink-0" />
+              <span className="font-semibold tracking-wide">CBSE Boys Day School • Std 1 to 12 Commerce</span>
             </div>
 
-            {/* Right Editorial Photography Card with Viewfinder (Awwwards Style) */}
+            {/* Master Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-[1.12]">
+              A Place to Learn, Grow<br />
+              <span className="text-[#dfc488]">and Build Character.</span>
+            </h1>
+
+            <p className="text-slate-200 text-sm sm:text-base max-w-2xl leading-relaxed">
+              Tapovan Vatsalyadham School (English Medium) is a recognized CBSE institution for boys in Amiyapur, Gandhinagar, offering education from Classes 1 to 12 (with Commerce at the Senior Secondary level). Rooted in &quot;धर्मो रक्षति रक्षितः&quot; and managed by Jivan Jagruti Trust.
+            </p>
+
+            {/* Two Clear CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#admission-form"
+                className="btn-accent text-xs sm:text-sm py-3.5 px-6 font-bold whitespace-nowrap inline-flex items-center gap-2 cursor-pointer shadow-lg"
+              >
+                <GraduationCap className="w-4 h-4 shrink-0" />
+                <span>Enquire for Admission (2027–28)</span>
+              </a>
+              <Link
+                href="/school-life"
+                className="btn-outline-white text-xs sm:text-sm py-3.5 px-6 whitespace-nowrap inline-flex items-center gap-2"
+              >
+                <Compass className="w-4 h-4 shrink-0" />
+                <span>Explore Campus Life</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4-Item Quick Facts Strip */}
+      <section className="bg-white border-b border-[#e5e1d8] py-8 sm:py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center divide-x-0 sm:divide-x divide-[#e5e1d8]">
+            <div className="px-3">
+              <div className="text-xl sm:text-2xl font-bold text-[#1b3832] font-serif">CBSE Affiliated</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">Affiliation #430592 • Code: 11722</div>
+            </div>
+            <div className="px-3">
+              <div className="text-xl sm:text-2xl font-bold text-[#1b3832] font-serif">Classes 1 to 12</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">Commerce in Senior Secondary</div>
+            </div>
+            <div className="px-3">
+              <div className="text-xl sm:text-2xl font-bold text-[#1b3832] font-serif">Boys Day School</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">Character &amp; Academic Focus</div>
+            </div>
+            <div className="px-3">
+              <div className="text-xl sm:text-2xl font-bold text-[#1b3832] font-serif">Amiyapur, Gandhinagar</div>
+              <div className="text-xs text-slate-500 font-medium mt-1">Near Tapovan Circle (PIN 382424)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Institutional Vision & Leadership */}
+      <section className="py-20 sm:py-24 bg-[#faf9f5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            {/* Left Image Card */}
             <div className="lg:col-span-5 relative">
-              <div className="viewfinder-frame rounded-lg overflow-hidden border border-slate-700 bg-slate-900 shadow-2xl relative aspect-[4/3] group">
+              <div className="rounded-2xl border border-[#e5e1d8] overflow-hidden bg-white shadow-md relative aspect-[4/5] max-h-[460px]">
                 <img
                   src="/assets/images/campus_assembly.jpg"
-                  alt="Tapovan Vatsalyadham Students Assembly"
-                  loading="eager"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-
-                {/* Viewfinder crosshairs and discrete labels */}
-                <div className="viewfinder-tr" />
-                <div className="viewfinder-bl" />
-
-                <div className="absolute top-4 left-4 z-20 text-[10px] font-mono text-white/90 bg-slate-950/70 px-2 py-0.5 rounded border border-white/20 uppercase tracking-widest backdrop-blur-sm">
-                  Tapovan Vatsalyadham
-                </div>
-                <div className="absolute bottom-4 right-4 z-20 text-[10px] font-mono text-[#d4af37] bg-slate-950/70 px-2 py-0.5 rounded border border-white/20 uppercase tracking-widest backdrop-blur-sm">
-                  Amiyapur • Gandhinagar
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent flex flex-col justify-end p-5 pointer-events-none">
-                  <span className="text-[10px] font-bold text-[#d4af37] uppercase tracking-widest">School Routine</span>
-                  <h3 className="text-white text-base font-bold font-serif">Morning Prayer &amp; Assembly</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Discipline, patriotic reverence, and clarity to start each educational day.</p>
-                </div>
-              </div>
-
-              {/* 4 Authentic Metric Tiles */}
-              <div className="grid grid-cols-2 gap-2.5 mt-3 pt-3 border-t border-slate-800">
-                <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
-                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">430592</div>
-                  <div className="text-[11px] text-slate-300">CBSE Affiliation #</div>
-                </div>
-                <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
-                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">Boys Only</div>
-                  <div className="text-[11px] text-slate-300">Day School Format</div>
-                </div>
-                <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
-                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">Std 1 to 12</div>
-                  <div className="text-[11px] text-slate-300">Commerce in 11 &amp; 12</div>
-                </div>
-                <div className="bg-[#0b1d3a] p-3 rounded border border-slate-700/80 text-left">
-                  <div className="text-xl sm:text-2xl font-bold font-serif text-[#d4af37]">20+ Acres</div>
-                  <div className="text-[11px] text-slate-300">Green Campus</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* School At A Glance Strip */}
-      <section className="bg-white border-b border-[#e5e1d8] py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x divide-[#e5e1d8]">
-            <div className="px-3">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">CBSE Affiliation</div>
-              <div className="text-xs text-slate-600 mt-1">Affiliation No. 430592 • School Code 11722</div>
-            </div>
-            <div className="px-3">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">Boys Day School</div>
-              <div className="text-xs text-slate-600 mt-1">English Medium (Std 1 to 12 Commerce)</div>
-            </div>
-            <div className="px-3">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">धर्मो रक्षति रक्षितः</div>
-              <div className="text-xs text-slate-600 mt-1">Governed by Jivan Jagruti Trust</div>
-            </div>
-            <div className="px-3">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">Session 2027-28</div>
-              <div className="text-xs text-[#8b6508] font-semibold mt-1">Admissions Open Now (Age 6+ for Std 1)</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About The School: Editorial Narrative (MS School Inspired Asymmetric Layout) */}
-      <section className="py-24 bg-[#faf9f5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-            {/* Visual Column with Architectural Arch Framing */}
-            <div className="lg:col-span-5 relative">
-              <div className="rounded-t-[80px] rounded-b-2xl border border-[#e5e1d8] overflow-hidden bg-white shadow-lg relative aspect-[4/5] max-h-[480px]">
-                <img
-                  src="/assets/images/school_activity.jpg"
-                  alt="Students engaged in co-curricular learning"
+                  alt="Tapovan students during morning assembly"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37]">Values In Practice</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#dfc488]">Values In Practice</span>
                   <div className="font-serif font-bold text-base mt-0.5">Character Precedes Career</div>
                 </div>
               </div>
-              <div className="mt-4 p-4 bg-white border border-[#e5e1d8] rounded-xl text-left shadow-sm">
-                <div className="text-[10px] font-mono font-bold text-[#8b6508] uppercase tracking-wider">Our Governing Principle</div>
-                <div className="text-sm font-serif font-bold text-[#0b1d3a] mt-0.5">&quot;People Not Profits — Education is a Sacred Responsibility&quot;</div>
+              <div className="mt-4 p-4 bg-white border border-[#e5e1d8] rounded-xl text-left shadow-xs">
+                <div className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Our Governing Principle</div>
+                <div className="text-sm font-serif font-bold text-[#1b3832] mt-0.5">&quot;Education Dedicated to Character, Clarity and Service&quot;</div>
                 <p className="text-xs text-slate-500 mt-1">Managed under the philanthropic stewardship of Jivan Jagruti Trust.</p>
               </div>
             </div>
 
-            {/* Narrative Column */}
+            {/* Right Narrative */}
             <div className="lg:col-span-7 space-y-6">
               <span className="badge-editorial">Institutional Vision</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0b1d3a] font-serif leading-[1.14] tracking-tight">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1b3832] font-serif leading-[1.15] tracking-tight">
                 Shaping Academically Accomplished Young Men
               </h2>
 
               <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                <strong>Tapovan Vatsalyadham School (English Medium)</strong> is an English medium CBSE Boys Day School (Affiliation #430592 • School Code 11722) located near Tapovan Circle in Amiyapur, Gandhinagar. Led by Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong> under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>, our mission is to cultivate clarity of thought, resilience, and leadership.
+                Rooted in the timeless ideal of &quot;धर्मो रक्षति रक्षितः&quot;, Tapovan Vatsalyadham School provides an environment where young men cultivate intellectual brilliance, moral conviction, and physical stamina. Led by Principal <strong>Mrs. Rupa Chirag Shah (M.Sc., M.Ed.)</strong> under the philanthropic stewardship of <strong>Jivan Jagruti Trust</strong>, our education balances rigorous CBSE preparation with character-first values.
               </p>
 
-              {/* Chairman's Guiding Creed Card */}
-              <div className="bg-[#fcf8ee] p-5 rounded-xl border border-[#ebdcb8] text-left">
-                <div className="text-[10px] font-mono font-bold text-[#8b6508] uppercase tracking-wider">Managing Trustee &amp; Leadership Vision</div>
-                <div className="text-sm font-serif font-bold text-[#0b1d3a] mt-1 italic">
+              {/* Leadership Creed Card */}
+              <div className="bg-[#fbf8f0] p-5 rounded-xl border border-[#ebdbb4] text-left">
+                <div className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Leadership Creed</div>
+                <div className="text-xs sm:text-sm font-serif font-semibold text-[#1b3832] mt-1 italic leading-relaxed">
                   &quot;To shape academically accomplished young men who think with clarity, are future fluent, stand strong and resilient and lead beyond self — living Bhakti, Maitri, Shuddhi and Shaurya through their choices and actions.&quot;
                 </div>
               </div>
 
               {/* 4 Virtues Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
-                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">भक्ति (Bhakti)</div>
-                  <div className="text-[10px] text-[#8b6508] mt-0.5">Devotion &amp; Reverence</div>
+                <div className="bg-white p-3.5 rounded-xl border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#1b3832]">भक्ति (Bhakti)</div>
+                  <div className="text-[10px] text-[#856124] mt-0.5 font-medium">Devotion &amp; Reverence</div>
                 </div>
-                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
-                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">मैत्री (Maitri)</div>
-                  <div className="text-[10px] text-[#8b6508] mt-0.5">Brotherhood &amp; Harmony</div>
+                <div className="bg-white p-3.5 rounded-xl border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#1b3832]">मैत्री (Maitri)</div>
+                  <div className="text-[10px] text-[#856124] mt-0.5 font-medium">Brotherhood &amp; Harmony</div>
                 </div>
-                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
-                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">शुद्धि (Shuddhi)</div>
-                  <div className="text-[10px] text-[#8b6508] mt-0.5">Moral Purity &amp; Truth</div>
+                <div className="bg-white p-3.5 rounded-xl border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#1b3832]">शुद्धि (Shuddhi)</div>
+                  <div className="text-[10px] text-[#856124] mt-0.5 font-medium">Purity &amp; Truth</div>
                 </div>
-                <div className="bg-white p-3.5 rounded-lg border border-[#e5e1d8] text-center shadow-xs">
-                  <div className="font-serif font-bold text-sm text-[#0b1d3a]">शौर्य (Shaurya)</div>
-                  <div className="text-[10px] text-[#8b6508] mt-0.5">Courage &amp; Resilience</div>
+                <div className="bg-white p-3.5 rounded-xl border border-[#e5e1d8] text-center shadow-xs">
+                  <div className="font-serif font-bold text-sm text-[#1b3832]">शौर्य (Shaurya)</div>
+                  <div className="text-[10px] text-[#856124] mt-0.5 font-medium">Courage &amp; Resilience</div>
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link href="/about" prefetch={true} className="btn-primary text-xs font-semibold py-3 px-6">
-                  Read Complete Institutional Profile &rarr;
+                <Link href="/about" className="btn-primary text-xs font-semibold py-3 px-6">
+                  Read School Profile &rarr;
                 </Link>
-                <Link href="/contact" prefetch={true} className="text-xs font-semibold text-[#0b1d3a] hover:text-[#b8860b] transition-colors py-2 px-3">
+                <Link href="/contact" className="text-xs font-semibold text-[#1b3832] hover:text-[#c29b38] transition-colors py-2 px-3">
                   Schedule A Campus Visit
                 </Link>
               </div>
@@ -435,82 +359,76 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Academic Programs Breakdown */}
+      {/* 4-Stage Academics Breakdown */}
       <section className="py-20 bg-white border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-            <span className="badge-editorial">Curriculum &amp; Stages</span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif">
-              Comprehensive CBSE Academic Programs
+            <span className="badge-editorial">Curriculum Stages</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
+              Four-Stage CBSE Academic Programs
             </h2>
-            <p className="text-slate-600 text-sm">
+            <p className="text-slate-600 text-xs sm:text-sm">
               Structured learning stages designed to develop foundational literacy, scientific inquiry, and board excellence.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            {/* Primary */}
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Foundations (Std 1–5)</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Primary School (Grades 1 to 5)</h3>
+                <span className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Foundations (Std 1–5)</span>
+                <h3 className="font-serif font-bold text-base text-[#1b3832] mt-1 mb-2">Primary Wing (Classes 1–5)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Core competencies in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and character values. Minimum age: 6+ years as on 31st March.
+                  Core competencies in English, Mathematics, Environmental Studies (EVS), Hindi, Gujarati, Basic Computer Skills, and character values. Minimum age: 6+ years on or before 31st March.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
-                Focus: Conceptual Logic &amp; Literacy (Age 6+)
+                Focus: Conceptual Logic &amp; Literacy
               </div>
             </div>
 
-            {/* Middle School */}
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Preparatory (Std 6–8)</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Middle School (Grades 6 to 8)</h3>
+                <span className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Middle Wing (Std 6–8)</span>
+                <h3 className="font-serif font-bold text-base text-[#1b3832] mt-1 mb-2">Middle Wing (Classes 6–8)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Dedicated sciences (Physics, Chemistry, Biology), Social Sciences, Sanskrit, Computer Applications, and Vedic mathematics principles.
+                  Dedicated sciences (Physics, Chemistry, Biology concepts), Social Sciences, Sanskrit, Computer Applications, and Vedic mathematics principles.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
-                Focus: Analytical Reasoning &amp; Lab Practicals
+                Focus: Analytical Inquiry &amp; Labs
               </div>
             </div>
 
-            {/* Secondary */}
             <div className="editorial-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">CBSE Board (Std 9–10)</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Secondary School (Grades 9 &amp; 10)</h3>
+                <span className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Secondary (Std 9–10)</span>
+                <h3 className="font-serif font-bold text-base text-[#1b3832] mt-1 mb-2">Secondary Wing (Classes 9 &amp; 10)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
                   Rigorous CBSE Board preparation, continuous formative assessments, laboratory practicals, and mock examination drills for Class 10 success.
                 </p>
               </div>
               <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-slate-500 font-medium">
-                Focus: CBSE Class 10 Board Excellence
+                Focus: CBSE Board Excellence
               </div>
             </div>
 
-            {/* Senior Secondary - Commerce */}
-            <div className="editorial-card p-6 flex flex-col justify-between border-t-2 border-t-[#b8860b]">
+            <div className="editorial-card p-6 flex flex-col justify-between border-t-2 border-t-[#c29b38]">
               <div>
-                <span className="text-[10px] font-bold text-[#8b6508] uppercase tracking-wider">Sr. Secondary (Std 11–12)</span>
-                <h3 className="font-serif font-bold text-lg text-[#0b1d3a] mt-1 mb-2">Commerce Stream (XI &amp; XII)</h3>
+                <span className="text-[10px] font-bold text-[#856124] uppercase tracking-wider">Sr. Secondary (Std 11–12)</span>
+                <h3 className="font-serif font-bold text-base text-[#1b3832] mt-1 mb-2">Commerce Stream (XI &amp; XII)</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
                   Accountancy, Business Studies, Economics, English Core, Applied Mathematics / Informatics Practices, and Physical Education with CA Foundation preparedness.
                 </p>
               </div>
-              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-[#8b6508] font-bold">
-                Timings: Std 11 (7:40-1:40) | Std 12 (7:40-1:00)
+              <div className="pt-3 border-t border-[#e5e1d8] text-[11px] text-[#856124] font-bold">
+                Focus: Commerce, Finance &amp; CA Prep
               </div>
             </div>
-
           </div>
 
-          <div className="mt-10 text-center">
-            <Link href="/academics" prefetch={true} className="btn-outline text-xs font-semibold">
+          <div className="mt-8 text-center">
+            <Link href="/academics" className="btn-outline text-xs font-semibold">
               View Detailed Curriculum &amp; Faculty Details &rarr;
             </Link>
           </div>
@@ -518,28 +436,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Feature 5.E: Interactive Campus Explorer */}
+      {/* Interactive Campus Explorer (6 Authentic Categories) */}
       <section className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="badge-editorial mb-2">Interactive Campus Explorer</span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif">
+              <span className="badge-editorial mb-2">Campus Infrastructure</span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
                 Explore Our Campus Facilities
               </h2>
-              <p className="text-slate-600 text-sm mt-1 max-w-xl">
-                Click on any campus facility to view authentic photographs, equipment specifications, and student capacities.
+              <p className="text-slate-600 text-xs sm:text-sm mt-1 max-w-xl">
+                Click on any facility to view authentic photographs, equipment specifications, and student capacities.
               </p>
             </div>
-            <Link href="/facilities" prefetch={true} className="btn-outline text-xs font-semibold shrink-0">
-              Browse All Facilities &rarr;
+            <Link href="/facilities" className="btn-outline text-xs font-semibold shrink-0">
+              Browse All 6 Facilities &rarr;
             </Link>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-            {/* Location Selector Tabs */}
+            {/* Selector Tabs */}
             <div className="lg:col-span-4 space-y-2">
               {campusLocations.map((loc) => {
                 const isSelected = activeLocation.id === loc.id;
@@ -547,25 +465,26 @@ export default function HomePage() {
                   <button
                     key={loc.id}
                     onClick={() => setActiveLocation(loc)}
-                    className={`w-full text-left p-4 rounded border transition-all flex items-center justify-between ${isSelected
-                      ? 'bg-[#0b1d3a] text-white border-[#0b1d3a] shadow-sm'
-                      : 'bg-white text-slate-800 border-[#e5e1d8] hover:border-slate-400'
-                      }`}
+                    className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between ${
+                      isSelected
+                        ? 'bg-[#1b3832] text-white border-[#1b3832] shadow-sm'
+                        : 'bg-white text-slate-800 border-[#e5e1d8] hover:border-slate-400'
+                    }`}
                   >
                     <div>
-                      <div className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#d4af37]' : 'text-slate-500'}`}>
+                      <div className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'text-[#dfc488]' : 'text-slate-500'}`}>
                         {loc.category}
                       </div>
-                      <div className="font-semibold text-sm mt-0.5">{loc.name}</div>
+                      <div className="font-semibold text-xs sm:text-sm mt-0.5">{loc.name}</div>
                     </div>
-                    <ArrowRight className={`w-4 h-4 shrink-0 transition-transform ${isSelected ? 'translate-x-1 text-[#d4af37]' : 'opacity-30'}`} />
+                    <ArrowRight className={`w-4 h-4 shrink-0 transition-transform ${isSelected ? 'translate-x-1 text-[#dfc488]' : 'opacity-30'}`} />
                   </button>
                 );
               })}
             </div>
 
-            {/* Display Pane for Active Location */}
-            <div className="lg:col-span-8 bg-white rounded border border-[#e5e1d8] overflow-hidden shadow-sm">
+            {/* Active Facility Display Card */}
+            <div className="lg:col-span-8 bg-white rounded-2xl border border-[#e5e1d8] overflow-hidden shadow-sm">
               <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
                 <img
                   src={activeLocation.image}
@@ -573,28 +492,28 @@ export default function HomePage() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-opacity duration-300"
                 />
-                <span className="absolute top-4 left-4 bg-[#0b1d3a]/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
+                <span className="absolute top-4 left-4 bg-[#1b3832]/90 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
                   {activeLocation.category}
                 </span>
               </div>
               <div className="p-6 sm:p-8 space-y-4">
                 <div>
-                  <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#0b1d3a]">
+                  <h3 className="font-serif font-bold text-xl text-[#1b3832]">
                     {activeLocation.name}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mt-2">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-2">
                     {activeLocation.description}
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-[#e5e1d8]">
-                  <div className="text-[11px] font-bold text-[#8b6508] uppercase tracking-wider mb-2">
-                    Key Specifications &amp; Amenities:
+                  <div className="text-[11px] font-bold text-[#856124] uppercase tracking-wider mb-2">
+                    Key Features &amp; Specifications:
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {activeLocation.specs.map((spec, sIdx) => (
-                      <span key={sIdx} className="inline-flex items-center gap-1.5 bg-[#faf9f5] border border-[#e5e1d8] px-3 py-1 rounded text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-[#b8860b]" /> {spec}
+                      <span key={sIdx} className="inline-flex items-center gap-1.5 bg-[#faf9f5] border border-[#e5e1d8] px-3 py-1 rounded-md text-xs text-slate-700">
+                        <Check className="w-3.5 h-3.5 text-[#c29b38]" /> {spec}
                       </span>
                     ))}
                   </div>
@@ -607,120 +526,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* News, Events & Official Notice Board */}
+      {/* Curated Authentic Photo Gallery */}
       <section className="py-20 bg-white border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="badge-editorial mb-2">Notice Board &amp; Calendar</span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif">
-                Latest Announcements &amp; Schedules
-              </h2>
-              <p className="text-slate-600 text-sm mt-1">
-                Official notifications, vacation schedules, and key circulars for parents and students.
-              </p>
-            </div>
-            <a
-              href="/assets/docs/academic-calendar-2025-26.pdf"
-              target="_blank"
-              className="btn-outline text-xs font-semibold shrink-0 inline-flex items-center gap-1.5"
-            >
-              <Download className="w-3.5 h-3.5" /> Download Academic Calendar PDF
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <div className="editorial-card p-5 flex flex-col justify-between">
-              <div>
-                <span className="inline-block bg-[#fdfaf2] text-[#8b6508] border border-[#ebdcb8] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
-                  Admissions Active
-                </span>
-                <h4 className="font-bold text-sm text-[#0b1d3a] mt-3 mb-1">Session 2027-28 Enrollment Open</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Registrations for Std 1 up to Class 12 (Commerce Stream) are open for boys. Age 6+ for Std 1. Contact school desk for campus visits.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] mt-4 flex items-center justify-between text-[11px] text-slate-500">
-                <span>Updated Daily</span>
-                <a href="#admission-form" className="text-[#0b1d3a] font-bold hover:underline">Apply &rarr;</a>
-              </div>
-            </div>
-
-            <div className="editorial-card p-5 flex flex-col justify-between">
-              <div>
-                <span className="inline-block bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase">
-                  Academic Calendar
-                </span>
-                <h4 className="font-bold text-sm text-[#0b1d3a] mt-3 mb-1">Approved Annual Calendar 2027-28</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Term schedules, examination dates, formative assessment dates, and public holidays available for download.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] mt-4 flex items-center justify-between text-[11px] text-slate-500">
-                <span>Session 2027-28</span>
-                <a href="/assets/docs/academic-calendar-2025-26.pdf" target="_blank" className="text-[#0b1d3a] font-bold hover:underline">View PDF &rarr;</a>
-              </div>
-            </div>
-
-            <div className="editorial-card p-5 flex flex-col justify-between">
-              <div>
-                <span className="inline-block bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase">
-                  Statutory
-                </span>
-                <h4 className="font-bold text-sm text-[#0b1d3a] mt-3 mb-1">Fee Structure &amp; Regulations</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Transparent fee schedule approved by the School Management Committee as per CBSE regulatory standards.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] mt-4 flex items-center justify-between text-[11px] text-slate-500">
-                <span>Verified Copy</span>
-                <a href="/assets/docs/fee-structure-2025-26.pdf" target="_blank" className="text-[#0b1d3a] font-bold hover:underline">Download &rarr;</a>
-              </div>
-            </div>
-
-            <div className="editorial-card p-5 flex flex-col justify-between">
-              <div>
-                <span className="inline-block bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase">
-                  Transport
-                </span>
-                <h4 className="font-bold text-sm text-[#0b1d3a] mt-3 mb-1">School Bus Routes for 2027-28</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Covers Gandhinagar Sectors, Chandkheda, Motera, Sabarmati, and surrounding areas with verified GPS tracking.
-                </p>
-              </div>
-              <div className="pt-3 border-t border-[#e5e1d8] mt-4 flex items-center justify-between text-[11px] text-slate-500">
-                <span>GPS Monitored</span>
-                <Link href="/contact" prefetch={true} className="text-[#0b1d3a] font-bold hover:underline">Inquire Routes &rarr;</Link>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* Curated Authentic Photo Gallery */}
-      <section className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
               <span className="badge-editorial mb-2">Campus Glimpses</span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
                 Life &amp; Environment at Tapovan
               </h2>
-              <p className="text-slate-600 text-sm mt-1">
+              <p className="text-slate-600 text-xs sm:text-sm mt-1">
                 Authentic visual records of our learning spaces, laboratories, assembly, and sports grounds.
               </p>
             </div>
-            <Link href="/gallery" prefetch={true} className="btn-outline text-xs font-semibold shrink-0">
+            <Link href="/gallery" className="btn-outline text-xs font-semibold shrink-0">
               Open Full Photo Gallery ({galleryPreview.length}+ Photos) &rarr;
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {galleryPreview.map((photo, pIdx) => (
               <div
                 key={pIdx}
@@ -734,12 +559,12 @@ export default function HomePage() {
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#0b1d3a]/90 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded">
+                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#1b3832]/90 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded">
                     {photo.cat}
                   </span>
                 </div>
-                <div className="p-2.5 sm:p-3.5">
-                  <h4 className="font-semibold text-xs sm:text-[13px] text-[#0b1d3a] group-hover:text-[#b8860b] transition-colors line-clamp-2 leading-snug">
+                <div className="p-3">
+                  <h4 className="font-semibold text-xs text-[#1b3832] group-hover:text-[#c29b38] transition-colors line-clamp-2 leading-snug">
                     {photo.title}
                   </h4>
                 </div>
@@ -747,20 +572,22 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Full Screen Lightbox with Clear Visible Close Button */}
+          {/* Full Screen Lightbox */}
           {lightboxImage && (
             <div
               className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
               onClick={() => setLightboxImage(null)}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Image Preview"
             >
-              {/* Prominent Always-Visible Top-Right Close Button */}
               <button
                 type="button"
                 onClick={() => setLightboxImage(null)}
-                className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[60] w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center backdrop-blur-md shadow-lg border border-white/30 transition-all active:scale-95"
-                aria-label="Close Lightbox"
+                className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[60] w-11 h-11 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center backdrop-blur-md shadow-lg border border-white/30 transition-all active:scale-95"
+                aria-label="Close Lightbox (Esc)"
               >
-                <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                <X className="w-5 h-5" />
               </button>
               <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
                 <img
@@ -778,13 +605,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Feature 5.F: Smart Searchable Institutional FAQ */}
-      <section className="py-20 bg-white border-t border-[#e5e1d8]">
+      {/* Institutional FAQ Section (Clean Accordions, Zero Search Clutter) */}
+      <section className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
             <span className="badge-editorial">Parent Inquiries</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1b3832] font-serif">
               Frequently Asked Questions
             </h2>
             <p className="text-xs sm:text-sm text-slate-500">
@@ -792,34 +619,22 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Instant Search Bar */}
-          <div className="relative mb-6">
-            <input
-              type="text"
-              value={faqSearch}
-              onChange={(e) => setFaqSearch(e.target.value)}
-              placeholder="Search questions (e.g. bus, timing, documents, streams)..."
-              className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm rounded border border-[#e5e1d8] bg-[#faf9f5] focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] shadow-sm"
-            />
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
-          </div>
-
           {/* FAQ Accordion List */}
           <div className="space-y-3">
-            {filteredFaqs.map((faq, fIdx) => {
+            {faqData.map((faq, fIdx) => {
               const isOpen = openFaqIndex === fIdx;
               return (
                 <div
                   key={fIdx}
-                  className="rounded border border-[#e5e1d8] bg-[#faf9f5] transition-colors"
+                  className="rounded-xl border border-[#e5e1d8] bg-white transition-colors"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : fIdx)}
-                    className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-semibold text-xs sm:text-sm text-[#0b1d3a]"
+                    className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-semibold text-xs sm:text-sm text-[#1b3832]"
                   >
                     <span className="font-medium">{faq.q}</span>
                     {isOpen ? (
-                      <ChevronUp className="w-4 h-4 shrink-0 text-[#b8860b]" />
+                      <ChevronUp className="w-4 h-4 shrink-0 text-[#c29b38]" />
                     ) : (
                       <ChevronDown className="w-4 h-4 shrink-0 text-slate-400" />
                     )}
@@ -832,24 +647,18 @@ export default function HomePage() {
                 </div>
               );
             })}
-
-            {filteredFaqs.length === 0 && (
-              <div className="text-center py-8 text-xs text-slate-500">
-                No matching questions found. Please call our admissions desk at <a href="tel:+919737691800" className="font-bold text-[#0b1d3a]">+91 9737691800</a> for direct assistance.
-              </div>
-            )}
           </div>
 
         </div>
       </section>
 
-      {/* Verified Parent Testimonials */}
-      <section className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8]">
+      {/* Parent Testimonials */}
+      <section className="py-20 bg-white border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
             <span className="badge-editorial">Parent Perspectives</span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0b1d3a] font-serif">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1b3832] font-serif">
               Trusted by Families Across Gandhinagar
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm">
@@ -858,41 +667,41 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded border border-[#e5e1d8] flex flex-col justify-between shadow-sm">
+            <div className="bg-[#faf9f5] p-6 rounded-xl border border-[#e5e1d8] flex flex-col justify-between shadow-xs">
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 italic">
                 &quot;Tapovan Vatsalyadham School provides a nurturing environment where my child thrives academically and emotionally. The dedicated teachers and structured curriculum make learning enjoyable and disciplined.&quot;
               </p>
               <div className="flex items-center gap-3 pt-4 border-t border-[#e5e1d8]">
-                <div className="w-9 h-9 rounded-full bg-[#0b1d3a] text-white flex items-center justify-center font-bold text-xs">SB</div>
+                <div className="w-9 h-9 rounded-full bg-[#1b3832] text-white flex items-center justify-center font-bold text-xs">SB</div>
                 <div>
-                  <h4 className="font-bold text-[#0b1d3a] text-xs">Shridhar Bhai</h4>
-                  <p className="text-[10px] text-[#8b6508] font-medium">Parent of Secondary Student</p>
+                  <h4 className="font-bold text-[#1b3832] text-xs">Shridhar Bhai</h4>
+                  <p className="text-[10px] text-[#856124] font-medium">Parent of Secondary Student</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded border border-[#e5e1d8] flex flex-col justify-between shadow-sm">
+            <div className="bg-[#faf9f5] p-6 rounded-xl border border-[#e5e1d8] flex flex-col justify-between shadow-xs">
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 italic">
                 &quot;I am impressed by the school&apos;s commitment to character building alongside academics. Teachers give personalized attention, and the campus environment is peaceful and completely distraction-free.&quot;
               </p>
               <div className="flex items-center gap-3 pt-4 border-t border-[#e5e1d8]">
-                <div className="w-9 h-9 rounded-full bg-[#b8860b] text-white flex items-center justify-center font-bold text-xs">SK</div>
+                <div className="w-9 h-9 rounded-full bg-[#c29b38] text-white flex items-center justify-center font-bold text-xs">SK</div>
                 <div>
-                  <h4 className="font-bold text-[#0b1d3a] text-xs">Sneha Kakkad</h4>
-                  <p className="text-[10px] text-[#8b6508] font-medium">Parent of Middle School Student</p>
+                  <h4 className="font-bold text-[#1b3832] text-xs">Sneha Kakkad</h4>
+                  <p className="text-[10px] text-[#856124] font-medium">Parent of Middle School Student</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded border border-[#e5e1d8] flex flex-col justify-between shadow-sm">
+            <div className="bg-[#faf9f5] p-6 rounded-xl border border-[#e5e1d8] flex flex-col justify-between shadow-xs">
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 italic">
                 &quot;Choosing Tapovan Vatsalyadham was one of our best decisions. The values, discipline, and science lab infrastructure have helped my child develop strong confidence and curiosity.&quot;
               </p>
               <div className="flex items-center gap-3 pt-4 border-t border-[#e5e1d8]">
-                <div className="w-9 h-9 rounded-full bg-[#0b1d3a] text-white flex items-center justify-center font-bold text-xs">MG</div>
+                <div className="w-9 h-9 rounded-full bg-[#5f4c5f] text-white flex items-center justify-center font-bold text-xs">MG</div>
                 <div>
-                  <h4 className="font-bold text-[#0b1d3a] text-xs">Mansi Gupta</h4>
-                  <p className="text-[10px] text-[#8b6508] font-medium">Parent of Primary Student</p>
+                  <h4 className="font-bold text-[#1b3832] text-xs">Mansi Gupta</h4>
+                  <p className="text-[10px] text-[#856124] font-medium">Parent of Primary Student</p>
                 </div>
               </div>
             </div>
@@ -902,13 +711,13 @@ export default function HomePage() {
       </section>
 
       {/* Online Admission Registration Form */}
-      <section className="py-20 bg-white border-t border-[#e5e1d8] scroll-mt-20 sm:scroll-mt-24" id="admission-form">
+      <section className="py-20 bg-[#faf9f5] border-t border-[#e5e1d8] scroll-mt-20 sm:scroll-mt-24" id="admission-form">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#faf9f5] rounded border border-[#e5e1d8] p-6 sm:p-10 shadow-sm">
+          <div className="bg-white rounded-2xl border border-[#e5e1d8] p-6 sm:p-10 shadow-sm">
 
             <div className="text-center max-w-xl mx-auto mb-8 space-y-2">
-              <span className="badge-editorial">Enrollment 2027-28</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">
+              <span className="badge-editorial">Enrollment 2027–28</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1b3832] font-serif">
                 Online Admission Enquiry
               </h2>
               <p className="text-xs text-slate-500">
@@ -917,7 +726,7 @@ export default function HomePage() {
             </div>
 
             {formError && (
-              <div className="p-3 bg-red-50 text-red-700 text-xs rounded border border-red-200 mb-4 text-center font-semibold">
+              <div className="p-3 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200 mb-4 text-center font-semibold">
                 {formError}
               </div>
             )}
@@ -933,7 +742,7 @@ export default function HomePage() {
                     value={formData.studentName}
                     onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
                     placeholder="e.g. Aarav Patel"
-                    className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3832]/20 focus:border-[#1b3832] bg-white"
                   />
                 </div>
                 <div>
@@ -945,7 +754,7 @@ export default function HomePage() {
                     value={formData.parentName}
                     onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
                     placeholder="e.g. Ramesh Patel"
-                    className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3832]/20 focus:border-[#1b3832] bg-white"
                   />
                 </div>
               </div>
@@ -960,7 +769,7 @@ export default function HomePage() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="10-digit mobile number"
-                    className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3832]/20 focus:border-[#1b3832] bg-white"
                   />
                 </div>
                 <div>
@@ -971,7 +780,7 @@ export default function HomePage() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="parent@example.com"
-                    className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3832]/20 focus:border-[#1b3832] bg-white"
                   />
                 </div>
               </div>
@@ -984,7 +793,7 @@ export default function HomePage() {
                     required
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3832]/20 focus:border-[#1b3832] bg-white"
                   >
                     <option value="">Select Grade</option>
                     <option value="Primary (Class 1 to 5)">Primary (Class 1 to 5) — Min Age 6+</option>
@@ -1000,53 +809,59 @@ export default function HomePage() {
                     type="text"
                     value={formData.area}
                     onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-                    placeholder="e.g. Gandhinagar, Chandkheda, Motera"
-                    className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
+                    placeholder="e.g. Gandhinagar, Chandkheda, Motera, Ahmedabad"
+                    className="w-full px-3.5 py-2.5 rounded-lg border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3832]/20 focus:border-[#1b3832] bg-white"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="hp-notes" className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Bus Route Requirement</label>
+                <label htmlFor="hp-notes" className="block text-xs font-bold text-slate-700 mb-1">Any Specific Questions or Information</label>
                 <textarea
                   id="hp-notes"
                   rows={3}
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  placeholder="Mention any queries regarding bus routes, curriculum, or previous schooling..."
-                  className="w-full px-3.5 py-2.5 rounded border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#0b1d3a]/20 focus:border-[#0b1d3a] bg-white"
+                  placeholder="Mention any queries regarding curriculum, previous schooling, or fee details..."
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-[#e5e1d8] text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3832]/20 focus:border-[#1b3832] bg-white"
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full btn-accent justify-center text-sm py-3.5 font-bold uppercase tracking-wider whitespace-nowrap flex items-center gap-2"
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Submitting Enquiry...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4 shrink-0" />
-                    <span>Submit Admission Enquiry (<span className="whitespace-nowrap">2027-28</span>)</span>
-                  </>
-                )}
-              </button>
+              <div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full btn-accent justify-center text-sm py-3.5 font-bold uppercase tracking-wider whitespace-nowrap flex items-center gap-2"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Submitting Enquiry...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 shrink-0" />
+                      <span>Submit Admission Enquiry (<span className="whitespace-nowrap">2027–28</span>)</span>
+                    </>
+                  )}
+                </button>
+                <p className="text-[11px] text-slate-500 text-center mt-3 flex items-center justify-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#c29b38] shrink-0" />
+                  <span>Privacy Notice: Information provided will only be used to respond to your admission enquiry. We respect your privacy and never share parent contact details. View our <Link href="/privacy-policy" className="text-[#1b3832] font-semibold underline">Privacy Policy</Link>.</span>
+                </p>
+              </div>
             </form>
 
             {/* Clean Confirmation Modal */}
             {isSuccess && (
               <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
-                <div className="bg-white rounded border border-[#e5e1d8] max-w-md w-full p-6 sm:p-8 shadow-2xl text-center space-y-4">
+                <div className="bg-white rounded-2xl border border-[#e5e1d8] max-w-md w-full p-6 sm:p-8 shadow-2xl text-center space-y-4">
                   <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto text-2xl">
                     <CheckCircle className="w-8 h-8" />
                   </div>
-                  <h3 className="font-bold text-[#0b1d3a] text-xl font-serif">Enquiry Submitted Successfully!</h3>
+                  <h3 className="font-bold text-[#1b3832] text-xl font-serif">Enquiry Received</h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Thank you, <strong>{formData.parentName || 'Parent'}</strong>! We have received your admission enquiry for <strong>{formData.studentName || 'your child'}</strong> for Academic Session 2027-28. Our admissions desk will contact you at <strong>{formData.phone}</strong> shortly.
+                    Thank you for contacting Tapovan Vatsalyadham School. Your admission enquiry has been received. A member of our admissions team will contact you using the details provided.
                   </p>
 
                   <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
@@ -1054,7 +869,7 @@ export default function HomePage() {
                       href={`https://wa.me/919737691800?text=${encodeURIComponent(`Hello Tapovan School, I have submitted an admission enquiry for ${formData.studentName || 'my child'} for class ${formData.grade || '2027-28'}.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold py-2.5 px-4 rounded text-xs flex items-center justify-center gap-1.5 transition-colors"
+                      className="bg-[#25D366] hover:bg-[#20ba59] text-white font-bold py-2.5 px-4 rounded-lg text-xs flex items-center justify-center gap-1.5 transition-colors"
                     >
                       <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" /> Message on WhatsApp
                     </a>
@@ -1077,20 +892,20 @@ export default function HomePage() {
       </section>
 
       {/* Campus Map & Visiting Hours */}
-      <section className="py-16 bg-[#faf9f5] border-t border-[#e5e1d8]">
+      <section className="py-16 bg-white border-t border-[#e5e1d8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
             <div className="lg:col-span-5 space-y-5">
               <span className="badge-editorial">Location &amp; Office</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0b1d3a] font-serif">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1b3832] font-serif">
                 Campus Location &amp; Visiting Hours
               </h2>
               <div className="space-y-3 text-xs text-slate-600">
-                <div className="p-4 bg-white rounded border border-[#e5e1d8] flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#b8860b] shrink-0 mt-0.5" />
+                <div className="p-4 bg-[#faf9f5] rounded-xl border border-[#e5e1d8] flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-[#c29b38] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-[#0b1d3a] text-sm">School Campus Address</h4>
+                    <h4 className="font-bold text-[#1b3832] text-sm">School Campus Address</h4>
                     <p className="mt-0.5 leading-relaxed">
                       Tapovan Sanskar Pith, Near Tapovan Circle, Amiyapur, Gandhinagar, Gujarat - 382424
                     </p>
@@ -1098,42 +913,42 @@ export default function HomePage() {
                       href="https://maps.app.goo.gl/rvkxjZTvtcjEL9YS8"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] text-[#b8860b] font-semibold hover:underline mt-1 inline-block"
+                      className="text-[11px] text-[#856124] font-semibold hover:underline mt-1 inline-block"
                     >
                       Open in Google Maps &rarr;
                     </a>
                   </div>
                 </div>
 
-                <div className="p-4 bg-white rounded border border-[#e5e1d8] flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-[#0b1d3a] shrink-0 mt-0.5" />
+                <div className="p-4 bg-[#faf9f5] rounded-xl border border-[#e5e1d8] flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-[#1b3832] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-[#0b1d3a] text-sm">Direct Office &amp; Principal Numbers</h4>
+                    <h4 className="font-bold text-[#1b3832] text-sm">Direct Office &amp; Principal Numbers</h4>
                     <p className="mt-0.5">
-                      Admissions Helpline: <a href="tel:+919737691800" className="text-[#0b1d3a] font-bold hover:underline">+91 9737691800</a><br />
-                      Principal Office (Mrs. Rupa Shah): <a href="tel:+919574523601" className="text-[#0b1d3a] font-bold hover:underline">+91 9574523601</a>
+                      Admissions Helpline: <a href="tel:+919737691800" className="text-[#1b3832] font-bold hover:underline">+91 9737691800</a><br />
+                      Principal Office (Mrs. Rupa Shah): <a href="tel:+919574523601" className="text-[#1b3832] font-bold hover:underline">+91 9574523601</a>
                     </p>
                   </div>
                 </div>
 
-                <div className="p-4 bg-white rounded border border-[#e5e1d8] flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="p-4 bg-[#faf9f5] rounded-xl border border-[#e5e1d8] flex items-start gap-3">
+                  <Clock className="w-5 h-5 text-[#856124] shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-[#0b1d3a] text-sm">Official School Timings (Mon–Sat)</h4>
-                    <p className="mt-0.5 leading-relaxed text-[11px]">
-                      • Reporting &amp; Assembly: <strong>7:30 AM &amp; 7:40 AM</strong><br />
-                      • Classes (Std 1 to 11): <strong>7:40 AM – 1:40 PM</strong><br />
-                      • Classes (Std 12 Commerce): <strong>7:40 AM – 1:00 PM</strong><br />
-                      • Short Recess: <strong>8:20 AM – 8:35 AM</strong> | Lunch Break: <strong>11:15 AM – 11:45 AM</strong><br />
-                      • Administrative Office: <strong>9:00 AM – 4:00 PM</strong>
+                    <h4 className="font-bold text-[#1b3832] text-sm">Timings (Monday – Saturday)</h4>
+                    <p className="mt-1 leading-relaxed text-xs text-slate-600">
+                      <strong>School Hours:</strong> 7:40 AM – 1:40 PM (Std 12 to 1:00 PM)<br />
+                      <strong>Office Hours:</strong> 9:00 AM – 4:00 PM
                     </p>
+                    <Link href="/school-life" className="text-[11px] text-[#856124] font-bold hover:underline inline-block mt-1">
+                      View Daily Timetable &rarr;
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-7">
-              <div className="rounded border border-[#e5e1d8] overflow-hidden shadow-sm h-80 bg-slate-200">
+              <div className="rounded-2xl border border-[#e5e1d8] overflow-hidden shadow-sm h-80 bg-slate-200">
                 <iframe
                   title="Tapovan Vatsalyadham Campus Map"
                   src="https://maps.google.com/maps?q=Tapovan%20Sanskar%20Pith%20Amiyapur%20Gandhinagar&t=&z=14&ie=UTF8&iwloc=&output=embed"
